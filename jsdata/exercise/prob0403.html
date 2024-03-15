@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>最後に一度だけdocument.write()</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+
+"use strict";
+let x = ""; // 「空文字列」に「初期化」しておく
+for (let i=1; i<=16; i++) {
+  x += `${i}. 私はプログラミングが好きになる〜〜<br>`;
+  // できた文字列を x の後ろに次々と追加して行く
+}
+document.write(x); // 最後に一度だけ書き出す。こうしたほうが少し実行が速い
+</script>
+
+</body>
+</html>
+
+

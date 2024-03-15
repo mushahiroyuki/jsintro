@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+
+<style type="text/css">
+  body {
+    text-align: center;
+    margin: 0;
+  }
+  .bigPict {
+    width: 96%;
+  }
+</style>
+
+</head>
+
+<body>
+  <h1>Photo Gallery</h1>
+  <div id="smallPicts"> <!-- 小画像の表示領域 -->
+  </div>
+  <div id="pictFrame"> <!-- 大画像の表示枠 -->
+  </div>
+<script>
+  "use strict";
+  
+  const numberOfPicts = 5;
+  const scrollBarWidth = 20;
+  const smallPictWidth = (window.innerWidth-scrollBarWidth)/numberOfPicts;
+
+  //小画像のHTMLコードを作る
+  let html = "";
+  for (let i=0; i<numberOfPicts; i++) { 
+    const filename = `pictures/picture00${i}.jpg`;
+    html += `<img id="image${i}" style="width: ${smallPictWidth}px;" src="${filename}">`;
+  }
+  document.getElementById("smallPicts").innerHTML = html; //小画像を表示
+
+  for (let i=0; i<numberOfPicts; i++) { //イベントハンドラを追加
+    const filename = `pictures/picture00${i}.jpg`;
+    const img = document.getElementById(`image${i}`); //画像オブジェクト
+    if (0 < navigator.maxTouchPoints ) { //タッチ操作ができる
+      img.addEventListener("touchstart", () => { //その画像をタッチしたら
+        if (document.getElementById("pictFrame").innerHTML.includes(filename)) {
+          document.getElementById("pictFrame").innerHTML = "";
+        }
+        else {
+          document.getElementById("pictFrame").innerHTML
+            = `<img class="bigPict" src="${filename}">`
+        }
+      });
+    }
+    else { //これまでと同じ処理
+      img.addEventListener("mouseover", () =>  //大画像を表示
+        document.getElementById("pictFrame").innerHTML
+          = `<img class="bigPict" src="${filename}">`
+      );
+      img.addEventListener("mouseout", () =>   //大画像を消去
+        document.getElementById("pictFrame").innerHTML = ""
+      );
+    } 
+  }
+</script>
+</body>
+</html>

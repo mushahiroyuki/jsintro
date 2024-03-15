@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    img {
+      width: 400px;
+    }
+  </style>
+<title>`...`の代わりに'...'を使ってしまうと...</title>
+</head>
+
+<body>
+
+  <p>
+    `...` の代わりに '...' を使ってしまうと...<br>
+    文字列中に変数などを使いたい場合は `...` で囲む必要があります。
+  </p>
+  <div>
+    <script>
+      "use strict";
+      for (let i=0; i<8; i++) {
+        document.write('<img src="pictures/picture00${i}.jpg">');
+      }
+    </script>
+  </div>
+</body>
+</html>

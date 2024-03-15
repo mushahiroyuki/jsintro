@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9-1</title>
+</head>
+
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+  "use strict";
+  const 英和辞書 = {
+    library: "図書館",  mountain: "山",  river: "川",
+    bug: "虫",         warrior: "武者",  knight: "騎士",
+    star: "星",        moon: "月",       ant: "蟻",
+    elephant: "象",    bird: "鳥",       book: "本"
+  };
+  
+  /*
+    「英和辞書」オブジェクトの「library」プロパティの値が "図書館" になる。
+    
+    次のように書くこともできる（ただし、上のほうが簡単）
+    let 英和辞書 = [];   // 「let 英和辞書 = new Array();」でもOK 
+    英和辞書['library'] = "図書館";
+    英和辞書['mountain'] = "山";
+    ...
+    英和辞書['book'] = "本";
+  */
+
+  let 英単語 = prompt("英単語を入力してください", ""); 
+  // console.log(英単語);  // デバッグ用
+  let 日本語 = 英和辞書[英単語];
+
+  let message;
+  if (! 英単語) { // 何も入力されないと 英単語 の値は""となり「偽」と判定される
+    // 「!」がつくと反対になるので、ifの条件は「真」となる
+    // 何も入力されなかった場合
+    message = "英単語を入力してください。"
+  }
+  else if (日本語) {
+    message = `"${英単語}" の日本語の意味は「${日本語}」です。`;
+  }
+  else {
+    message = `"${英単語}"の日本語の意味はわかりません。すみません。`;
+  }
+  document.write(message);
+</script>
+</body>
+</html>

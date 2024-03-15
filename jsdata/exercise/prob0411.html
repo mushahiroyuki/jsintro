@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>４行４列の画像。リンクを追加</title>
+  <style>
+    body {
+      font-size: 24pt;
+    }
+  </style>
+</head>
+
+<body style="background-color: #99CC99;">
+
+<h2>４行４列（画像をクリックすると拡大）</h2>
+
+<script>
+"use strict";
+const 行数 = 4;  // こうしておけば、ここを変えるだけで行数の変化に対応可能
+const 列数 = 4;  
+const スタイル = `style="width: 120px;"`;
+let 画像番号 = 0; // 出力する画像の番号を記憶する
+let html = "<table>";
+for (let 行番号=0; 行番号<行数; 行番号++) { // 行 （外側のループ）
+	html += "<tr>";
+	for (let 列番号=0; 列番号<列数; 列番号++) { // 列 （内側のループ）
+		let ファイル名 = `pictures/picture00${画像番号}.jpg`;
+		if (10 <= 画像番号) {
+			ファイル名 = `pictures/picture0${画像番号}.jpg`;
+		}
+    const 画像タグ = `<img src="${ファイル名}" ${スタイル}>`;
+		画像番号++; // 次の画像の番号を準備する
+		console.log(ファイル名);
+    const リンク = `<a href="${ファイル名}">${画像タグ}</a>`;
+    html += `<td> ${リンク} </td>`;
+	}
+	html += "</tr>";
+	// console.log(html) // ←ここで出力すると1回ループを回った時の結果がわかる
+}
+html += "</table>";
+document.write(html);
+</script>
+
+
+</body>
+</html>

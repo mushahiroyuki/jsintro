@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6-4</title>
+</head>
+
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+
+"use strict";
+let x = Math.random();
+// alert(x); // ←確認（デバッグ）用。「//」を撮って実行するとxの値を確認できる
+let 運勢;
+if (x<=0.1) {
+  運勢 = "daikyou"; // 大凶
+}
+else if (x<=0.3) {
+  運勢 = "kyou"; // 凶
+}
+else if (x<=0.5) {
+  運勢 = "suekichi"; // 末吉
+}
+else if (x<=0.7) {
+  運勢 = "shoukichi"; // 小吉
+}
+else if (x<=0.9) {
+  運勢 = "chuukichi"; // 中吉
+}
+else { // それ以外なら
+  運勢 = "daikichi";  // 大吉
+}
+
+// alert(運勢); // 確認用。xと「運勢」の値が正しいか確認できる
+
+let message = `
+  あなたの今日の運勢は？<br><br>
+  <img style='vertical-align: middle; width: 300px;'
+       src='pictures/omikuji_${運勢}.png'>
+`;
+  // 上のように`...` を使うと、文字列の中に改行が入る文字列や、変数を書ける
+  // 詳しくは第４章で説明
+
+document.write(message);
+</script>
+
+
+</body>
+</html>

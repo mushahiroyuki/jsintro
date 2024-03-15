@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四角を動かす（両方向）</title>
+
+<style type="text/css">
+  #rectangle {
+    background-color: #70D1BD;
+    width: 200px;
+    height: 160px;
+  }
+</style>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <h1>四角を動かす（両方向）</h1>
+    <div id="rectangle">
+    </div>
+  </div>
+
+  <script>
+    "use strict";
+    const 継続時間 = 20; // 「継続時間」実行したら停止。ずっと動き続けないように
+    const 更新間隔 = 10; // setIntervalの第2引数（ミリ秒単位）
+    const 右方向への移動 = 1;
+    const 左方向への移動 = 2;
+    const 左マージンの最大値 = 800; // px単位
+    const 一回の移動距離 = 3; // 1回に動く距離（px単位）    
+
+    const 四角 = document.getElementById("rectangle");  
+    let 方向 = 右方向への移動;
+    let 左マージン = 0;
+
+    const タイマーID = setInterval(四角を動かす, 10);
+    setTimeout(()=>clearInterval(タイマーID), 継続時間*1000);
+    // 継続時間（20）秒、たったらやめる
+    
+    function 四角を動かす() {
+      if (方向 === 右方向への移動) { // 右方向の場合
+        左マージン += 一回の移動距離; // 右に移動することになる
+        if (左マージン < 左マージンの最大値) { // まだ一番右に到達してい
+          四角.style.marginLeft = `${左マージン}px`;
+        }
+        else {  // 行き過ぎてしまうので方向を逆にする
+          方向 = 左方向への移動;
+        }
+      }
+      else { // 左方向への移動の場合
+        左マージン -= 一回の移動距離; // 左に移動することになる
+        if (0 < 左マージン) { // まだ左端に到達していない
+          四角.style.marginLeft = `${左マージン}px`;          
+        }
+        else {  // 左端に達してしまうので方向を逆にする
+          方向 = 右方向への移動;
+        }
+      }
+    }
+</script>
+</body>
+</html>

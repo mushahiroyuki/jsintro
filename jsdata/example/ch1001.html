@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スライドショー</title>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <h1>スライドショー</h1>
+    <img src="pictures/picture000.jpg" style="width: 80%;">
+  </div>
+
+<script>
+  "use strict";
+  const lastPictNum = 7; // 最後の画像の番号（何番まで表示するか）
+  let pictNum = 1; // 画像の番号。0はすでに表示されているので1から
+  let timerID = setInterval(changePict, 2*1000); // 2秒ごとにchangePictを呼出し
+
+  function changePict() { // 画像を変える関数
+    document.images[0].src = `pictures/picture00${pictNum}.jpg`; //画像を変更
+    pictNum++; // 画像の番号を1増やす
+    if (lastPictNum < pictNum) { // 最後の画像の番号を超えていたら
+      clearInterval(timerID);  // タイマーを止めて終了
+    }
+  }
+</script>
+</body>
+</html>

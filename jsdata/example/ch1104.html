@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四角を動かす</title>
+</head>
+
+<body>
+  <h1 style="text-align: center;">四角を動かす</h1>
+
+  <div id="rectangle">
+    <img src="pictures/rectangle.png"> <!-- 長方形の画像 -->
+  </div>
+  
+	<script>
+    "use strict";
+    const rectangle = document.getElementById("rectangle");
+    let counter = 0;
+    const timerID = setInterval(moveRectangle, 50);
+
+    // 長方形（rectangle）を動かす（move）
+    function moveRectangle() {
+	    counter++; // カウンタの値を1増やす
+	    rectangle.style.marginLeft = counter + "px";
+	    // left-margin（左端から四角までの距離）を指定
+	    if (800 < counter) { // 終了させる
+	      clearInterval(timerID);
+	    }
+    }  
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>スライドショー（バグあり）</title>
+</head>
+<body>
+  <img src="pictures/picture000.jpg">
+
+  <script>
+    let 画像番号 = 1;
+    const timerID = setInterval(displaypic, 1000*2);
+
+    function displaypic() {
+      const filename = `pictures/picture00${画像番号}.jpg`;
+      document.images[0].src = filename; // 表示画像をfilenameに変える
+      console.log(filename);
+      画像番号++;
+      if (5 <= 画像番号) {
+        clearInterval(timerID);
+      }
+    }
+</body>
+</html>

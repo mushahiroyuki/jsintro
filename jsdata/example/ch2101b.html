@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無限ループとbreak</title>
+</head>
+<body>
+  <script>
+    "use strict";
+    let 合計 = 0;
+    for (let i=1; 合計<=100; i++) {
+      document.write(`タイモンが${i}匹来ました。`);
+      合計 += i;
+      document.write(`合計${合計}匹になりました。<br>`);
+    }
+    document.write(`<br>タイモンが100匹を超えて、${合計}匹になりました。`);
+  </script>
+</body>
+</html>

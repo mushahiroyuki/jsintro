@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery（画像1枚。別解）</title>
+
+<style type="text/css">
+  body { /* <body>...</body>について有効になる */
+    text-align: center;  /* 全体をセンタリング */
+  }
+  .smallPict { /* class="smallPict" と指定されたものについて有効 */
+    width: 120px; /* 小画像のサイズを120pxに指定 */
+  }
+  .bigPict { /*  class="bigPict" と指定されたものについて有効 */
+    width: 400px; /* 大画像のサイズを400pxに指定 */
+  }
+</style>
+</head>
+<body>
+  <h1>Photo Gallery（画像1枚。別解）</h1>
+  <div id="smallPict"> <!-- 小画像の表示領域 -->
+    <img id="image0" class="smallPict" src="pictures/picture000.jpg">
+  </div>
+  <div id="pictFrame"> <!-- 大画像の表示枠 -->
+    <!-- 最初は何も表示されない --> 
+  </div>
+  <script>
+    "use strict";
+    const img = document.getElementById("image0"); // ★★ch1202.htmlと違うところ★★
+    img.addEventListener("mouseover", () =>
+      document.getElementById("pictFrame").innerHTML
+        = `<img class="bigPict" src="pictures/picture000.jpg">`
+    );
+    
+    img.addEventListener("mouseout", () =>
+      document.getElementById("pictFrame").innerHTML = ""
+    );
+  </script>  
+</body>
+</html>

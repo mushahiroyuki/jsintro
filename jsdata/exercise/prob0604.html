@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3回繰り返す</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+  <p>
+  しばらくお待ちください。<br>
+  3秒たつごとにメッセージが表示されます。<br>
+  3回で終わります。<br>
+  </p>
+  
+<script>
+"use strict";
+  const 秒数 = 3;
+  const 繰り返す回数 = 3;
+  let カウンタ = 0;
+  const タイマーID = setInterval(メッセージを表示, 秒数 * 1000);
+
+  function メッセージを表示() {
+    カウンタ++;
+    alert(秒数 + "秒経過しました");
+    if (繰り返す回数 <= カウンタ) {
+      //「===」を使ってもよいが、「<=」のほうが安全
+      // プログラムを変えたときに、===が成り立たなくなる危険を回避できる
+      // <= を使っておけば、===が真にならなくても、大きくなりさえすれば停止する
+      clearInterval(タイマーID);
+    }
+  }
+</script>
+
+</body>
+</html>
+
+

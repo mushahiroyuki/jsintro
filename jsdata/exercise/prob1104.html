@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四角を動かす</title>
+  <style>
+    #rectangle { /*「長方形」の領域 */
+      background-color: purple; /* 背景色の指定 */
+      width: 200px;  /* 幅 */
+      height: 160px; /* 高さ */
+    }
+  </style>
+</head>
+<body>
+	<div id="rectangle"> <!-- ここに長方形が描かれる。上のスタイル指定参照 --> 
+	</div>
+
+	<script>
+    "use strict";
+    const タイマーID = setInterval(四角を動かす, 50); // 50ミリ秒ごとに実行
+    let カウンタ = 0;
+
+    function 四角を動かす() { // setIntervalで呼び出される関数
+      カウンタ++;
+      const 四角 = document.getElementById("rectangle");
+      四角.style.marginLeft = `${カウンタ}px`;
+      // left-margin（左端から四角までの距離）を指定
+      if (800 < カウンタ) { // 800ピクセルを超えて移動したら終了
+        clearInterval(タイマーID);
+      }
+    } 
+  </script>
+
+</body>
+</html>

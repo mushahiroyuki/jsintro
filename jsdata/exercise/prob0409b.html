@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>	
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>２行４列の画像のテーブル（二重のループ）</title>
+</head>
+
+<body>
+
+<h2>２行４列の画像</h2>
+  
+
+<script>
+"use strict";
+const スタイル = `style="width: 120px;"`; 
+let html = "<table>";
+let 画像番号 = 0; // 出力する画像の番号を記憶する
+for (let 行番号=0; 行番号<2; 行番号++) {  // 行 （外側のループ）
+  html += "<tr>";
+  for (let 列番号=0; 列番号<4; 列番号++) { // 列 （内側のループ）
+    html += "<td>";
+    const ファイル名 = `pictures/picture00${画像番号}.jpg`;
+    画像番号++; // 次の画像の番号を準備する
+    console.log(ファイル名);
+    html += `<img src="${ファイル名}" ${スタイル}>`;
+    html += "</td>";
+  }
+  html += "</tr>";
+  // console.log(html) // ←ここで出力すると1回ループを回った時の結果がわかる
+}
+html += "</table>";
+document.write(html);
+</script>
+
+</body>
+</html>

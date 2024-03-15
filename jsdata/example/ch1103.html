@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像を拡大</title>
+</head>
+
+<body>
+  <div>
+    <img src="pictures/picture001.jpg" style="width: 100px;">
+  </div>
+  
+  <script>
+    "use strict";
+    const maxWidth = window.innerWidth * 0.9; //「最大幅」90%まで
+    // window.innerWidthでドキュメント領域の横幅（width）がわかる
+    const initialWidth = 100; //「最初の幅」。上で指定した画像の横幅
+    const increment = 10;     //「増分」。incrementピクセルずつ増やす
+    const interval = 100;     //「時間間隔」。ミリ秒（1/1000秒)単位
+
+    let width = initialWidth + increment; // 「サイズ」。1回目110px;
+    let timerID = setInterval(enlargePict, interval);
+    
+    function enlargePict() { // 画像（PICTure）を拡大（enlarge）
+      document.images[0].style.width = width + "px"; // ←★肝★
+      width += increment; // widthをincrementだけ増やす
+      console.log(`width=${width}`); //widthを確認できる
+      if (maxWidth <= width) { // 次回maxWidthを超えてしまうなら
+        clearInterval(timerID); // ストップ
+      }
+    }
+</script>
+</body>
+</html>

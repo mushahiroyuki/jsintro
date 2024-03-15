@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9-5</title>
+</head>
+<body style="margin: 4rem;">
+<script>
+"use strict";
+let now = new Date();
+let year = now.getFullYear();
+let month = now.getMonth();  // 0: 1月  1: 2月 ...
+let date = now.getDate();
+let dayOfTheWeek = now.getDay(); // 0: 日曜  1: 月曜 ...
+let dayOfTheWeekJ = 日本語の曜日文字列を得る(dayOfTheWeek);
+let hour = now.getHours();
+let minute = now.getMinutes();
+let second = now.getSeconds();
+
+document.write("現在 "+year+"年"+(month+1)+"月"+date+"日（"
+	       +dayOfTheWeekJ+") "+hour+"時"+minute+"分"+second+"秒 です。");
+
+function 日本語の曜日文字列を得る(num) {
+  let 曜日配列 = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"];
+  return 曜日配列[num];
+}
+</script>
+
+</body>
+</html>

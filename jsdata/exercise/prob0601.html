@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3秒後にダイアログボックスを表示</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+  <!-- ドキュメント領域に、上下左右4文字分（4rem）あけて表示。
+       文字の大きさ24ポイント -->
+  <p>
+    しばらくお待ちください。
+    3秒たつとメッセージが表示されます。
+  </p> 
+
+  <script>
+    "use strict";
+    setTimeout(メッセージを表示, 3*1000);
+    // 第2引数は「3000」と書いてもOKだが、「3*1000」のほうが3秒であることが明確
+    // ほんの少しだけ実行時間は多くなると思われるが、人間にとっては無視できる長さ
+    // なので、わかりやすさを優先
+
+    function メッセージを表示() {
+      alert("3秒経過しました")
+    }
+  </script>
+
+</body>
+</html>

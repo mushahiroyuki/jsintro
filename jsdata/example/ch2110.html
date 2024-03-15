@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array.every</title>
+</head>
+
+<body>
+<script>
+"use strict";
+  const テストの点数 = [98, 34, 70, 56, 89, 65, 70, 46, 64, 15];
+  if (テストの点数.every(x => 60 <= x)) {
+    document.write("全員60点以上でした！");
+  }
+  else {
+    document.write("60点取れなかった人が何人かいました。残念。");
+  }
+</script>
+</body>
+</html>

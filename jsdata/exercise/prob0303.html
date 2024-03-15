@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ 6種類</title>
+</head>
+
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+
+"use strict";
+let x = Math.random();
+let message;
+if (x<=0.1) {
+  message = "大凶"; // ここでは message という変数を使っています
+}
+else if (x<=0.3) {
+  message = "凶";
+}
+else if (x<=0.5) {
+  message = "末吉";
+}
+else if (x<=0.7) {
+  message = "小吉";
+}
+else if (x<=0.9) {
+  message = "中吉";
+}
+else { // それ以外なら
+  message = "大吉";
+}
+
+message = "あなたの今日の運勢は" + message + "です。";
+document.write(message);
+</script>
+
+
+</body>
+</html>

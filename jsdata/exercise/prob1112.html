@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東京オリンピック開会式からの経過日数</title>
+</head>
+<body style="margin: 4rem;">
+<script>
+
+"use strict";
+const 開催日午前零時 = new Date(2021, 6, 23); // 年、月、日を指定（6で7月）
+// const 開催日午前零時 = new Date("00:00 July 23, 2021 GMT+0900"); // これでもOK
+const 現在 = new Date();
+const 差_ミリ秒 = 開催日午前零時 - 現在;
+const 差_日_小数 = 差_ミリ秒/1000/60/60/24;
+const 差_日 = Math.ceil(差_日_小数); // Math.ceilで整数に切り下げる
+
+document.write(`2度目の東京オリンピックの開会式の日（2021年7月23日）から
+                <span style="font-size: 48pt;">${-差_日}日</span>たちました。`);
+  // <span>...</span> で囲むとその部分に対してスタイル指定などができる。
+  // 上の例では囲んだ部分の文字サイズを大きく（48ポイント）にしている
+</script>
+
+</body>
+</html>

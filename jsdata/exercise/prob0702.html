@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-2</title>
+</head>
+
+<body style="font-size: 24pt; margin: 3cm;">
+
+<p>
+<script>
+
+"use strict";
+let colors =  ["赤", "青", "黄色", "緑", "紫", "黒", "ピンク", "茶色", "灰色"];
+let i = getRandomInteger(colors.length-1); // length は配列の大きさ
+document.write("あなたの今日のラッキーカラーは" + colors[i] 
+    + "です");
+
+// 0以上n以下の整数をランダムに得る
+function getRandomInteger(n) {
+  let x = Math.random();
+  x = x * (n+1);
+  x = Math.floor(x);
+  return x;
+}
+
+</script>
+</p>
+
+</body>
+</html>

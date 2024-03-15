@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画を順番に再生</title>
+  <style>
+    .smallPict {
+      width: 22%;
+      border-radius: 10px; /* 境界線（border）の角を丸く。半径（radius）10px */
+    }
+    .bigMovie {
+      width: 60%;
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .controller {
+      margin: 1rem;
+      text-align: right;
+      font-size: 10pt;
+    }
+    .button {
+      width: 30%;
+      color: white;
+      background-color: #0032BF;
+      padding: 1rem;
+      border-radius: 1rem;
+      cursor: pointer;      
+    }
+    #soundOnOff {
+      background-color: white;
+      font-size: xx-large;
+    }
+  </style>
+</head>
+
+<body style="text-align: center;">
+  <h2>ムービーギャラリー</h2>
+
+  <div id="smallPictDiv">
+  </div>
+
+  <div class="controller">
+    <span class="button" id="soundOnOff">🔇</span>
+  </div>
+
+  <div id="bigMovieDiv">
+  </div>
+
+
+  <script>
+    "use strict";
+    const numberOfMovies = 4; // 動画の個数
+    const playPeriod = 3; // 各動画の再生時間
+    
+    let smallPictDiv = document.getElementById("smallPictDiv");
+    let bigMovieDiv = document.getElementById("bigMovieDiv");
+    let smallPictsHtml = "";
+    let bigMoviesHtml = "";
+    for (let i=0; i<numberOfMovies; i++) {
+      smallPictsHtml += `<img class="smallPict" src="movies/no0${i}.jpg">`;
+     bigMoviesHtml += `
+     <video class="bigMovie"  src="movies/no0${i}.mp4" poster="movies/no0${i}.jpg"
+            playsinline muted loop style="display: none;">
+     </video>`;
+
+    }
+    smallPictDiv.innerHTML = smallPictsHtml;
+    bigMovieDiv.innerHTML = bigMoviesHtml;
+
+    
+    let smallPicts = document.getElementsByClassName("smallPict");
+    let bigMovies = document.getElementsByClassName("bigMovie");
+
+    for (let i=0; i<numberOfMovies; i++) {
+      smallPicts[i].addEventListener("mouseover", () => {
+        bigMovies[i].style.display = "block";
+        bigMovies[i].play();
+      });
+
+      smallPicts[i].addEventListener("mouseout", () => {
+        bigMovies[i].pause();
+        bigMovies[i].style.display = "none";
+      });
+
+    }
+    
+    const soundOnOffButton = document.getElementById("soundOnOff");
+    soundOnOffButton.addEventListener("click", () => {
+      if (soundOnOffButton.innerHTML === "🔇") {
+        for (const m of bigMovies) {
+          m.muted = false;
+        }
+        soundOnOffButton.innerHTML = "🔉";
+      }
+      else {  // サウンドオンのとき。これからサウンドオフにする
+        for (const m of bigMovies) {
+          m.muted = true;
+        }
+        soundOnOffButton.innerHTML = "🔇";
+      }
+    });
+    
+</script>
+</body>
+</html>

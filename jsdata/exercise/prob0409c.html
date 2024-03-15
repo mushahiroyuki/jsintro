@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<title>２行４列（5章で作る「幅を指定して画像タグを生成」を使う）</title>
+</head>
+
+<body style="background-color: #99CC99;">
+
+<h2>２行４列（5章で作る「幅を指定して画像タグを生成」を使う）</h2>
+
+<script>
+"use strict";
+let html = "";
+html += "<table style='text-align: right;'>";
+let 画像番号 = 0;
+for (let 行=1; 行<=2; 行++) {  // 行
+  html +="<tr>";
+  for (let 列=1; 列<=4; 列++) { // 列
+    html += "<td>";
+    const ファイル名 = `pictures/picture00${画像番号}.jpg`;
+    画像番号++;
+    html += 幅を指定して画像タグを生成(ファイル名, 200);
+    html += "</td>";
+  }
+  html +=  "</tr>";
+}
+html += "</table>";
+document.write(html);
+
+function 幅を指定して画像タグを生成(ファイル名, 幅) {
+  // ファイル名 -- 画像のファイル名
+  // 幅 -- 画像の幅をピクセル単位で
+  const html = `<img src="${ファイル名}" style="width: ${幅}px;">`;
+  return html;
+}
+
+
+</script>
+
+
+</body>
+</html>

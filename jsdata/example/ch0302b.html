@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ（別の変数yを用いるとエラーになる）</title>
+  <style>
+    body {
+      font-size: 24pt;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    ★★このプログラムはエラーになり、おみくじは表示されません。★★ 
+  </p>
+  <script>
+    "use strict";
+    let x = Math.random();
+    if (x < 0.3) {
+      let y = "凶";
+    }
+    else if (x < 0.6) {
+      let y = "小吉";
+    }
+    else {
+      let y = "大吉";
+    }
+    document.write(y); 
+  </script>
+</body>
+</html>

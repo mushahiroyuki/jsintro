@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array.some</title>
+</head>
+
+<body>
+<script>
+"use strict";
+  const テストの点数 = [98, 34, 70, 56, 89, 65, 70, 46, 64, 15];
+  if (テストの点数.some(x => 95 <= x)) {
+    document.write("95点以上とった人がいました。素晴らしい！");
+  }
+  else {
+    document.write("95点以上取った人は一人もいませんでした。残念。");
+  }
+</script>
+</body>
+</html>

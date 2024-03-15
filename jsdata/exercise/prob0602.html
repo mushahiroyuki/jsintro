@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>指定時間後にダイアログボックスを表示（無名関数）</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+<!-- ドキュメント領域に、上下左右4文字分（4rem）あけて表示。文字の大きさ24ポイント -->
+  <p>
+    しばらくお待ちください。3秒たつとメッセージが表示されます。
+  </p>
+      
+  <script>
+    "use strict";
+    setTimeout(
+      function () {  // ここから *END* までが関数の定義（第１引数）
+        alert("3秒経過しました");
+      },  // *END* 「}」までが関数の定義（第1引数）
+      3*1000); // 第２引数
+  </script>
+</body>
+</html>
+
+

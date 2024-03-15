@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「幅を指定して画像タグを生成」を使って連続して違う画像を生成</title>
+</head>
+<body>
+
+<script>
+"use strict";
+for (let i=0; i<8; i++) {
+  let x = 幅を指定して画像タグを生成(`pictures/picture00${i}.jpg`, (i+1)*100);
+  document.write(x + "<br>");
+}
+
+function 幅を指定して画像タグを生成(ファイル名, 幅) {
+  let html = `<img src="${ファイル名}" style="width: ${幅}px;">`;
+  return html;
+}
+</script>
+</body>
+</html>

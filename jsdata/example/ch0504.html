@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ（引数）</title>
+</head>
+<body>
+  <script>
+    "use strict";
+    運勢を表示("西野", "今日" );
+    運勢を表示("平原", "明日");
+    運勢を表示("家入", "明後日");
+
+    function 運勢を表示(人名, ひにち) {
+      let x = Math.random();
+      if (x < 0.3) {
+        x = "凶";
+      }
+      else if (x < 0.6) {
+        x = "小吉";
+      }
+      else {
+        x = "大吉";
+      }
+      const 結果 = `<span style="color: red;">${x}</span>`;
+      // <span>...</span>は囲まれた範囲に「スタイル」を適用するために使う
+      // この場合、color（文字の色）をred（赤）にする
+      document.write(`${人名}氏の${ひにち}の運勢は${結果}です。<br>`);
+    }
+  </script>
+</body>
+</html>

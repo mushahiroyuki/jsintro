@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スライドショー 前と異なる２つの画像</title>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <h1>スライドショー 2枚とも前と異なる画像を表示</h1>
+    <img src="pictures/picture000.jpg" style="width: 320px;">
+    <img src="pictures/picture001.jpg" style="width: 320px;">
+  </div>
+
+<script>
+  "use strict";
+  const lastPictNum = 9; // この画像を表示したら終わり
+  let pictNum = 2; // 画像の番号。0と1はすでに表示されているので2から
+  let timerID = setInterval(changePicts, 2*1000); //2秒ごとにchangePictsを呼出し  
+
+  function changePicts() {
+    document.images[0].src = `pictures/picture00${pictNum}.jpg`; //画像を変更
+    document.images[1].src = `pictures/picture00${pictNum+1}.jpg`;
+    if (lastPictNum <= pictNum+1) {
+      clearInterval(timerID);
+    }
+    pictNum += 2; // 「pictNum = pictNum+2」の短縮形。「自分を2増やす」（第3章参照）
+  }
+</script>
+
+</body>
+</html>

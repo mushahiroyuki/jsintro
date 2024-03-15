@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array.sort</title>
+</head>
+
+<body>
+<script>
+"use strict";
+  const テストの点数 = [98, 34, 70, 56, 89, 65, 70, 46, 64, 9];
+  テストの点数.sort( (a, b) => a-b ); // 引数は並び替えに用いる関数。大きいほうが後ろに来る
+  document.write(`並び替え後の点数: ${テストの点数}<br>`); // 小さいほうが後ろにくる
+  // → 並び替え後の点数: 9,34,46,56,64,65,70,70,89,98
+  テストの点数.sort( (a, b) => b-a );
+  document.write(`逆順並び替え後の点数: ${テストの点数}<br>`);
+  // → 逆順並び替え後の点数: 98,89,70,70,65,64,56,46,34,9
+  テストの点数.sort();
+  document.write(`文字コード順に並び替え後の点数: ${テストの点数}<br>`);
+  // 比較用の関数を指定しないと、文字列に変換してアルファベット順（文字コード順）に並べる
+</script>
+</body>
+</html>

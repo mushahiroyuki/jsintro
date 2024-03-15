@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ウィンドウの右端で折り返し バリエーション2</title>
+</head>
+
+<body>
+  <h1>ウィンドウの右端で折り返し</h1>
+  <ul>
+    <li>ウィンドウの大きさの変更に対応</li>
+    <li>最後に左端で停止</li>
+    <li>ウィンドウを小さくしたときも画像を隠さない</li>
+  </ul>
+  <img id="rocket" src="pictures/rocket3.png" style="margin: 0; width: 200px;">
+  
+  <script>
+    "use strict";
+    const 継続時間 = 30; // 「継続時間」(秒)実行したらその回で停止
+    const 更新間隔 = 10; // setIntervalの第2引数
+    const 一回の移動距離 = 5; // 1回に動く距離（px単位）
+
+    const 右向きの画像 = "pictures/rocket3.png";
+    const 左向きの画像 = "pictures/rocket4.png";
+    const 右方向への移動 = 1;
+    const 左方向への移動 = 2;
+
+    const ロケットの画像 = document.getElementById("rocket");
+    const 調整用のマージン = parseInt(ロケットの画像.style.width) + 20;
+    let 左マージンの最大値 = window.innerWidth - 調整用のマージン;
+    
+    // let 左マージンの最大値 = window.innerWidth - ロケットの長さ - 調整用のマージン;
+    let ロケット画像の左マージン = 0;
+    let 方向 = 右方向への移動;
+    let 最終回フラグ = false;
+    const タイマーID = setInterval(ロケットを動かす, 更新間隔);
+    setTimeout(()=> 最終回フラグ = true, 継続時間*1000);
+    
+    function ロケットを動かす() {
+      if (方向 === 右方向への移動) {  // 左から右への移動中
+        ロケット画像の左マージン += 一回の移動距離;
+        if (ロケット画像の左マージン < 左マージンの最大値) { // まだ一番右に到達していない
+          ロケットの画像.style.margin = `0 0 0 ${ロケット画像の左マージン}px`;
+        }
+        else { // 行き過ぎてしまうので方向を逆にする
+          方向 = 左方向への移動;
+          ロケットの画像.src = 左向きの画像;
+        }
+      }
+      else {  // 逆方向（右から左）への移動中
+        ロケット画像の左マージン -= 一回の移動距離;
+        if (0 < ロケット画像の左マージン) { // まだ左端に到達していない
+          ロケットの画像.style.margin = `0 0 0 ${ロケット画像の左マージン}px`;          
+        }
+        else { // 反対にする
+          方向 = 右方向への移動;
+          ロケットの画像.src = 右向きの画像;
+          if (最終回フラグ) {
+            clearInterval(タイマーID);
+          }
+        }
+      }
+    }
+
+    window.addEventListener("resize", () => {
+      // ウィンドウのサイズが変わったときの処理をここに書く
+      左マージンの最大値 = window.innerWidth - 調整用のマージン;
+      if (左マージンの最大値 < ロケット画像の左マージン) {
+        ロケットを隠さないよう位置を調整();
+      }
+    });
+
+    function ロケットを隠さないよう位置を調整() {
+      ロケット画像の左マージン = 左マージンの最大値;
+      ロケットの画像.style.margin = `0 0 0 ${ロケット画像の左マージン}px`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12-7 別解</title>
+
+<style>
+  body {
+    margin-left: 2rem;
+    font-size: large;
+  }
+</style>
+</head>
+
+<body>
+
+<h2>電話帳（別解。onsubmitの利用）</h2>
+
+  <form id="form1">
+  氏名：<input type="text" id="name">
+  <button type="submit" id="button" value="search">検索</button><br>
+  電話番号：<span id="phoneNumber"></span>
+  </form>
+
+<script type="text/javascript">
+
+"use strict";
+const 電話帳 =
+	{ "東野ナカ": "080-8811-8888",
+    "平山綾香": "090-3344-3333",
+    "白木渚" : "043-334-2222",
+    "武田信玄" : "0268-22-4321",
+    "上杉謙信" : "03-3311-3421",
+    "真田幸村" : "0268-24-3311",
+    "松ひく子" : "070-3312-2212"
+};
+
+  document.getElementById("form1").onsubmit = 電話番号を表示;
+  /* addEventListnerを使うほうが、細かな制御ができるが
+     この例のように単純な処理をする場合は、各オブジェクトのプロパティ"on..." を使うこともできる。
+     次のように書いてもOK
+     //  document.forms[0].onsubmit = 電話番号を表示;     
+   */
+
+  function 電話番号を表示(event) {
+    event.preventDefault(); // Enterで再読込しないように
+    const 氏名 = document.getElementById("name").value;
+    const 電話番号 = 電話番号を検索(氏名);
+    document.getElementById("phoneNumber").innerHTML = 電話番号;
+  }
+  
+  function 電話番号を検索(氏名) {
+    if (電話帳[氏名]) {
+      return 電話帳[氏名];
+    }
+    return "わかりません";
+  }
+
+</script>
+</body>
+</html>

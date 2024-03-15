@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9-4</title>
+</head>
+<body style="margin: 5rem; font-size: xx-large">
+<script>
+"use strict;"    
+let now = new Date();
+let hour = now.getHours();
+//alert(hour);
+// hour = 3;   // テストするために代入
+if (5 <= hour && hour<11) {
+  document.write("おはようございます。");
+}
+else if (11<=hour && hour<18) {
+  document.write("こんにちは。");  
+}
+else {
+  document.write("こんばんは。");
+}
+</script>
+
+</body>
+</html>

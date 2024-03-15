@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>秒数と回数を変更可能にして、途中でやめられるようにする</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+  <p>
+    秒数と回数を簡単に変えられるようにします。また、途中でやめられるようにします。
+  </p>
+  <script>
+    "use strict";
+    const 秒数 = 4;
+    const 繰り返す回数 = 5;
+    let カウンタ = 0;
+    const タイマーID = setInterval(
+      () => {
+        const 継続希望 = confirm(`${カウンタ+1}回目: ${秒数}秒経過しました`);
+        // confirmでは「キャンセル」ボタンも表示され、「キャンセル」を選択すると
+        // false が戻る
+        カウンタ++;
+        if (繰り返す回数 <= カウンタ || !継続希望) {
+          // 「継続希望」がfalse（偽）のときも条件が満たされる
+          clearInterval(タイマーID);
+        }
+      }
+      , 秒数 * 1000);
+
+    document.write(`
+      <p>
+        ${秒数}秒たつごとにメッセージが表示されます。<br>
+        ${繰り返す回数}回で終わります。<br>
+        途中で終了する場合は「キャンセル」を選択してください。
+      </p>
+    `);         
+  </script>
+
+</body>
+</html>
+
+

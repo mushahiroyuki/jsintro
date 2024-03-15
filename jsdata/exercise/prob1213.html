@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画の再生 その2</title>
+  <style>
+    .movie {
+      width: 60%;  /* 幅60%で表示 */
+      border-radius: 10px; /* 境界線（border）の角を丸く。半径（radius）10px */
+    }
+    .controller {
+      margin: 1rem;
+      text-align: center;
+      font-size: large;
+    }
+    .button {
+      color: white;
+      background-color: #0032BF;
+      padding: 1rem;
+      border-radius: 1rem;
+      cursor: pointer;
+    }
+    
+    #soundOnOff {
+      background-color: white;
+      font-size: xx-large;
+    }
+  </style>
+</head>
+
+<body style="text-align: center;">
+  <h2>動画の再生・停止とサウンドのオン・オフ</h2>
+
+  <div>
+    <video class="movie" src="movies/no00.mp4" poster="movies/no00.jpg"
+    playsinline loop>
+    </video>
+  </div>
+
+    <div class="controller">
+      <span class="button" id="startStop">再生</span>
+      <span class="button" id="soundOnOff">🔉</span>
+    </div>
+
+<script>
+  "use strict";
+  const movies = document.getElementsByClassName("movie");
+
+  const startStopButton = document.getElementById("startStop");
+  startStopButton.addEventListener("click", () => {
+    if (movies[0].paused) { // 再生中でないなら
+      movies[0].play();
+      startStopButton.innerHTML = "停止";
+    }
+    else {
+      movies[0].pause(); // 動画を停止
+      startStopButton.innerHTML = "開始";      
+    }
+  });
+
+  const soundOnOffButton = document.getElementById("soundOnOff");
+  soundOnOffButton.addEventListener("click", () => {
+    if (movies[0].muted) { // サウンドがオフなら
+      movies[0].muted = false;
+      soundOnOffButton.innerHTML = "🔉";
+    }
+    else {
+      movies[0].muted = true;
+      soundOnOffButton.innerHTML = "🔇";      
+    }
+  });
+
+  
+/*
+  function playOneMovie() { // playingMovieの再生を止め、他方の再生を開始
+    movies[playingMovie].pause(); // 再生中のものをポーズ
+    playingMovie = 1 - playingMovie;  // playingMovieが1なら0; 0なら1になる
+    movies[playingMovie].muted = false; // muteを解除
+    movies[playingMovie].play();  // playingを再生
+    }
+    */
+</script>
+</body>
+</html>

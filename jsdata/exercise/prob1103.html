@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロケット発射（全画面書き換え） 時間計測 innerHTML</title>
+</head>
+
+<body>
+  <div id="rocket">
+  </div>
+<script>
+"use strict";
+let カウンタ = 10;
+const タイマーID = setInterval(カウントダウン, 1000);
+
+function カウントダウン() {
+  if (カウンタ >= 0) {
+    画面書き換え(カウンタ, "pictures/rocket1.png");
+    カウンタ--; // 次に備える  
+  }
+  else {
+    clearInterval(タイマーID); // タイマー停止
+    画面書き換え("発射！", "pictures/rocket2.png");
+  }
+}
+
+function 画面書き換え(テキスト, 画像ファイル) {
+  console.time("timer3");
+  document.getElementById("rocket").innerHTML = `
+     <div style="width: 320px; text-align: center; font-size: 36pt;">
+       ロケット発射<br>
+       <img src="${画像ファイル}" style="width: 200px;"><br>
+       ${テキスト}
+     </div>`;
+  console.timeEnd("timer3");
+}
+</script>
+</body>
+</html>

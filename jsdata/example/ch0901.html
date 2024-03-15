@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画を交互に再生</title>
+  <style>
+    .movie {
+      width: 45%;  /* 幅45%で表示 */
+      border-radius: 10px; /* 境界線（border）の角を丸く。半径（radius）10px */
+    }
+  </style>
+</head>
+
+<body style="text-align: center;">
+  <h2>動画を交互に再生</h2>
+
+  <div>
+    <video class="movie" src="movies/no00.mp4" poster="movies/no00.jpg"
+           muted playsinline>
+    </video>
+    <video class="movie" src="movies/no01.mp4" poster="movies/no01.jpg"
+           muted playsinline>
+    </video>
+  </div>
+
+<script>
+  "use strict";
+  const movies = document.getElementsByClassName("movie");
+  // CSSのclass名が"movie"のものを全部集める
+  // moviesはHTMLCollectionというほぼ配列と同じように扱えるものになる
+  
+  let playing = 0;  // 再生中の動画。0が左側 1が右側。最初は左（0）
+  movies[playing].play(); // playingの動画を再生開始
+  let timerID = setInterval(playOneMovie, 3*1000);
+  setTimeout(() => { // 40行目の第2引数に指定された60秒後に、以下の３行（関数の本体）を実行
+    clearInterval(timerID);  // 繰り返しのタイマーを止める
+    movies[0].pause(); // 左側の動画を停止
+    movies[1].pause(); // 右側の動画を停止
+  }, 60*1000);  // 60秒後に
+
+  function playOneMovie() { // playingの再生を止め、他方の再生を開始
+    movies[playing].pause(); // 再生中のもの（playing）をポーズ
+    playing = 1 - playing;  // playingが1なら0; 0なら1になる
+    movies[playing].play();  // playingを再生
+  }
+</script>
+</body>
+</html>

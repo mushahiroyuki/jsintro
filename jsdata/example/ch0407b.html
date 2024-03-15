@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+  <title>forループ（画像の表示。constを利用）</title>
+</head>
+
+<body>
+  <script>
+    "use strict";
+    const スタイル = `style="width: 25%;"`;
+    for (let i=0; i<8; i++) {
+      const ファイル名 = `pictures/picture00${i}.jpg`;
+      const 画像タグ = `<img src="${ファイル名}" ${スタイル}>`;
+      document.write(画像タグ);
+    }
+  </script>
+</body>
+</html>

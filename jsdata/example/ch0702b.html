@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>合計と平均 別解</title>
+</head>
+
+<body>
+<script>
+"use strict";
+const テストの点数 = [98, 34, 70, 56, 89, 65, 70, 46, 64, 56];
+let 合計 = 0;
+for (let i=0; i<テストの点数.length; i++) {
+  合計 += テストの点数[i];
+}
+const 平均 = 合計/テストの点数.length;
+document.write(`合計: ${合計}<br>`);
+document.write(`平均: ${平均}点`);                      
+</script>
+</body>
+</html>

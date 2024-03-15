@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>スタイルを使って画像の大きさを指定</title>
+</head>
+<body>
+<h2>スタイルを使って画像の大きさを指定</h2>
+
+<script>
+"use strict";
+const スタイル = `style="width: 100px;"`;
+// const スタイル = `style="width: 20%;"`; // 別の例
+
+let html = "";  
+for (let i=0; i<8; i++) {
+  const ファイル名 = `pictures/picture00${i}.jpg`;
+  const 画像タグ = `<img src="${ファイル名}" ${スタイル}>`;
+  html += 画像タグ;
+}
+document.write(html);
+</script>
+</body>
+</html>

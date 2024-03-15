@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四角を動かす（両方向。別解）</title>
+
+<style type="text/css">
+  #rectangle {
+    background-color: #70D1BD;
+    width: 200px;
+    height: 160px;
+  }
+</style>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <h1>四角が動く</h1>
+    <div id="rectangle">
+    </div>
+  </div>
+
+  <script>
+    "use strict";
+    const 継続時間 = 30; // 「継続時間」実行したら停止。ずっと動き続けないように    
+    const 右端 = 800; // px単位
+    const 倍率 = 5;
+    let カウンタ = 0;
+    let 方向 = 1;  // 1が右方向 -1が左方向
+    const タイマーID = setInterval(四角を動かす, 10);
+    setTimeout(()=>clearInterval(タイマーID), 継続時間*1000);
+    
+    function 四角を動かす() {
+      カウンタ++;
+      let マージン;
+      if (0 < 方向) { // 右方向の場合
+        マージン = カウンタ*倍率;
+      }
+      else { // 左方向の場合
+        マージン = 右端 - カウンタ*倍率;
+      }
+      const 四角 = document.getElementById("rectangle");  
+      四角.style.marginLeft = `${マージン}px`;
+      if (右端 < カウンタ*倍率) {
+        カウンタ = 0;
+        方向 *= -1; // 方向を反対にする  1*(-1) => -1;   (-1)*(-1) => 1;
+      }
+    }
+</script>
+</body>
+</html>
+

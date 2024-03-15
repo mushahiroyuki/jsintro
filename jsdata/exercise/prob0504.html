@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>関数「画像タグを生成」</title>
+</head>
+<body>
+
+<script>
+
+"use strict";
+let x = 画像タグを生成("pictures/picture001.jpg");
+console.log(x);
+document.write(x);
+
+function 画像タグを生成(ファイル名) {
+  // console.log(ファイル名);  // 関数に渡ってきたファイル名を確認
+  let html = `<img src="${ファイル名}" style="width:640px;">`;
+  return html;
+}
+
+</script>
+
+</body>
+</html>
+
+

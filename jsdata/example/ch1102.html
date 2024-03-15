@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>document.getElementById</title>
+</head>
+<body>
+  <h1>document.getElementById</h1>
+  <p>
+    5秒後に下の「♡♡♡」が「♠♠♠」に変わります。
+  </p>
+  <div id="abc">♡♡♡</div>
+<script>
+  "use strict";
+  let x = document.getElementById("abc");
+  setTimeout(()=> {x.innerHTML = "♠♠♠";}, 5*1000);
+  // 5秒後に「x.innerHTML = "♠♠♠";」が実行される
+</script>
+</body>
+</html>

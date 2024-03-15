@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setIntervalの第1引数は関数の定義（誤った書き方 その2)</title>
+</head>
+
+<body>
+<script>
+"use strict";
+let カウンタ = 10;
+const v = カウントダウン(); // ロケットの画像と10が表示される
+const タイマーID = setInterval(v, 1000); // vにはundefinedが指定されている
+
+function カウントダウン() {
+  if (カウンタ >= 0) {
+    画面書き換え(カウンタ, "pictures/rocket1.png");
+    カウンタ--; // 次に備える  
+  }
+  else {
+    clearInterval(タイマーID); // タイマー停止
+    画面書き換え("発射！", "pictures/rocket2.png");
+  }
+}
+
+function 画面書き換え(テキスト, 画像ファイル) {
+  document.open(); // クリア
+  const html = `
+     <div style="width: 320px; text-align: center; font-size: 36pt;">
+       ロケット発射<br>
+       <img src="${画像ファイル}" style="width: 200px;"><br>
+       ${テキスト}
+     </div>`;
+  document.write(html);
+  document.close();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像をクリック</title>
+<style>
+	#rocket {  /* id="rocket" についての指定 */
+    width: 200px;  /* ロケットの画像の大きさを指定 */
+		cursor: pointer;  /* 上に来たときマウスポインタを指の形にする */
+	}
+</style>
+</head>
+
+<body>
+	<div>
+    <h1>画像をクリック</h1>
+    <img id="rocket" src="pictures/rocket1.png">
+	</div>
+   
+  <script type="text/javascript">
+    "use strict";
+    const ロケットオブジェクト = document.getElementById("rocket");
+    
+    ロケットオブジェクト.addEventListener("click", () => {
+      alert("クリックしました！");
+    });
+  </script>
+</body>
+</html>

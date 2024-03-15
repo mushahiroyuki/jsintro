@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幅を指定して画像タグを生成</title>
+</head>
+<body>
+
+<script>
+
+"use strict";
+let x = 幅を指定して画像タグを生成("pictures/picture001.jpg", 320);
+document.write(x);
+
+function 幅を指定して画像タグを生成(ファイル名, 幅) {
+  // ファイル名 -- 画像のファイル名 （第1引数と呼ぶ）
+  // 幅 -- 画像の幅をピクセル（px）単位で（第2引数と呼ぶ）
+  let html = `<img src="${ファイル名}" style="width: ${幅}px;">`;
+  return html;
+}
+
+</script>
+</body>
+</html>

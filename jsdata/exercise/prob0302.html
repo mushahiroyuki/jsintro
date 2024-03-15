@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ 4種類</title>
+</head>
+
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+"use strict";
+  let x = Math.random();  // 0以上1未満の小数を返す
+  if (0.75 <= x) { // ４つを同じ割合で出すようにするなら、たとえば
+    x = "大吉"; // おみくじの文字列をxに記憶しておく
+  }
+  else if (0.5 <= x) {
+    x = "小吉";
+  }
+  else if (0.25 <= x) {
+    x = "末吉";
+  }
+  else {
+    x = "凶";
+  }
+  document.write(x); // 上でおみくじの文字列を作って、ここで書き出す
+</script>
+
+</body>
+</html>

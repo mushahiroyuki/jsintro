@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スライドショー 前と異なる4つの画像（40枚表示）</title>
+  <style>
+    h1 {
+      text-align: center; /* <h1>...</h1>をセンタリングする */
+    }
+    .pict {  /* class="pict"と指定したものを横幅22%で表示する */
+      width: 22%; 
+    }
+  </style>
+</head>
+
+<body>
+  <h1>スライドショー 4枚とも前と異なる画像を表示（40枚表示）</h1>
+    
+  <div style="text-align: center;">
+    <!-- 上でpictのスタイルを決めてある。幅 22% -->
+    <img class="pict" src="pictures/picture000.jpg"> 
+    <img class="pict" src="pictures/picture001.jpg">
+    <img class="pict" src="pictures/picture002.jpg">
+    <img class="pict" src="pictures/picture003.jpg">
+  </div>
+<script>
+  "use strict";
+  const lastPictNum = 39; // この画像を表示したら終わり
+  let pictNum = 4; // 画像の番号。0,1,2,3はすでに表示されているので4から
+  let timerID = setInterval(changePicts, 1000); //1秒ごとに変更
+
+  function changePicts() {
+    for (let i=0; i<4; i++) {
+      const numPart = (pictNum+i).toString().padStart(3, "0");
+      document.images[i].src = `pictures/picture${numPart}.jpg`; //画像を変更
+    }
+    if (lastPictNum <= pictNum+4) {
+      clearInterval(timerID);
+    }
+    pictNum += 4;
+  }
+</script>
+
+</body>
+</html>

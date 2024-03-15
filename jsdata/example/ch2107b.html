@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>合計と平均 reduce</title>
+</head>
+
+<body>
+<script>
+"use strict";
+  const テストの点数 = [98, 34, 70, 56, 89, 65, 70, 46, 64, 56];
+  let x = 0;
+  for (let i=0; i<テストの点数.length; i++) {
+    const y = テストの点数[i];
+    x += y;
+  }
+  const 合計 = x;
+  const 平均 = 合計/テストの点数.length;
+  document.write(`合計: ${合計}点<br>平均: ${平均}点`);
+</script>
+</body>
+</html>

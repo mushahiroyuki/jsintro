@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>forループとcontinue</title>
+</head>
+<body>
+
+  <script>
+    "use strict";
+    const 必要な数 = 150;
+
+    for (let i=1, 合計=0; ; i++) {
+      document.write(`タイモンが${i}匹やって来ました`);
+      if (i%4 === 0) {
+        document.write(`が、その${i}匹が雀荘に行ってしまったので、${合計}匹のママです。<br>`);
+      }
+      else {
+        合計 += i;
+        if (i === 1) {
+          document.write(`。<br>`);        
+        }
+        else {
+          document.write(`。合計${合計}匹になりました。<br>`);      
+          if (必要な数 < 合計) {
+            document.write(`<br>合計${必要な数}匹を超えたので、十分な数が集まりました。おしまい。`);
+            break;
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

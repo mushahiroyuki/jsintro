@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「幅を指定して画像タグを生成」を使って連続して画像を生成</title>
+</head>
+<body>
+
+<script>
+// prob0506b.html に別解あり
+"use strict";
+for (let 幅=100; 幅<=800; 幅+=100) {  // 「幅」の代わりに「i」などでももちろんOK
+  let x = 幅を指定して画像タグを生成("pictures/picture000.jpg", 幅);
+  document.write(x + "<br>");
+}
+
+function 幅を指定して画像タグを生成(ファイル名, 幅) {
+  let html = `<img src="${ファイル名}" style="width: ${幅}px;">`;
+  return html;
+}
+</script>
+</body>
+</html>

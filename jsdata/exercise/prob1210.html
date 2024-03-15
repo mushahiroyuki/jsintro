@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>フォームの処理（連想配列、和英辞典）</title>
+</style>
+</head>
+
+<body style="margin-left: 2rem;">
+
+  <h2>和英辞書</h2>
+  <form id="form1">
+  日本語の単語：<input type="text" id="jpn">
+  <button type="submit" id="button" value="search">検索</button><br>
+  英単語：<span id="eng"></span>
+  </form>
+
+<script>
+"use strict";
+
+const 英和辞書 = {
+  library: "図書館", mountain: "山", river: "川",
+  bug: "虫", warrior: "武者", knight: "騎士",
+  star: "星", moon: "月", ant: "蟻",
+  elephant: "象", bird: "鳥", book: "本"
+};
+
+const 英単語の配列 = Object.keys(英和辞書); 
+// 英和辞書のキー（プロパティ）が  英単語の配列 に記憶される
+
+/*  ★★ コメントです ★★
+// 次のようにすれば、「英単語の配列」の中身がわかる
+for (let i=0; i<英単語の配列.length; i++) {
+  console.log(英単語の配列[i]);
+}
+
+// なお for の別構文を使って、次のように書くこともできる
+for (let 単語 of 英単語の配列) { //配列のすべての要素について実行する
+  console.log(単語);
+}  //  ★★ ここまでコメント ★★
+*/
+
+// 次のようにすれば、和英辞典ができていることがわかる
+/*  ★★ コメントです ★★
+for (let i=0; i<英単語の配列.length; i++) {
+  console.log(` ${英和辞書[英単語の配列[i]]} -> ${英単語の配列[i]}`);
+}
+
+ // ↓でも同じ
+for (let 単語 of 英単語の配列) {
+  console.log(` ${英和辞書[単語]} -> ${単語}`);
+}    //  ★★ ここまでコメント ★★
+*/
+
+document.getElementById("form1").addEventListener("submit", 英語の意味を表示);
+
+function 英語の意味を表示() {
+  const 日本語の単語 = document.getElementById("jpn").value;
+  // alert(日本語の単語);
+  const 英語 = 単語を検索(日本語の単語);
+  document.getElementById("eng").innerHTML = 英語;
+  event.preventDefault(); // Enterで再読込しないように。return false;でもOK
+}
+
+function 単語を検索(日本語の単語) {
+  for (let i=0; i<英単語の配列.length; i++) {
+    if (英和辞書[英単語の配列[i]] === 日本語の単語) {
+      return 英単語の配列[i];
+    }
+  }
+  return "わかりません";
+}
+</script>
+</body>
+</html>

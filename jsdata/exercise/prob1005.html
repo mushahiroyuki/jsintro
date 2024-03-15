@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>時刻に合わせて異なるサイトへ移動</title>
+</head>
+<body>
+
+<h1>時刻に合わせて異なるサイトへ移動</h1>
+
+<script>
+  "use strict";
+  const now = new Date();
+  const hour = now.getHours();
+  let url;
+  if (0 <= hour && hour<=8) {
+    url = "https://asahi.com";
+  }
+  else if (9<=hour && hour<=16) {
+    url = "https://nikkei.com";
+  }
+  else if (17<=hour && hour<21) {
+    url = "https://oricon.co.jp";
+  }
+  else {
+    url = "https://sanspo.com";
+  }
+  const ok = confirm(`OKを押すと ${url} へ移動します`); // ダイアログを表示
+  if (ok) { // [OK]を選択されたらokの値がtrue（真）になる
+    document.write(`3秒後に ${url} へ移動します。`);
+    setTimeout(()=> location.href = url, 3*1000)
+  }
+  else { // ［キャンセル］を選択された場合
+    document.write("キャンセルしました。"); // 移動はしない
+  }
+</script>
+</body>
+</html>

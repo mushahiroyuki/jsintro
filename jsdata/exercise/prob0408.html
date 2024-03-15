@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tableタグを使った1行4列の画像テーブル</title>
+</head>
+
+<body>
+
+<h2>１行４列</h2>
+
+<script>
+"use strict";
+const スタイル = 'style="width: 120px;"';
+let 画像番号 = 0;
+let html = "<table>";
+html += "<tr>";
+for (let 列番号=0; 列番号<4; 列番号++) { // 列
+  const ファイル名 = `pictures/picture00${画像番号}.jpg`;
+  画像番号++;
+  html += `<td> <img src="${ファイル名}" ${スタイル}> </td>`;
+}
+html += "</tr>";
+html += "</table>";
+document.write(html);
+</script>
+
+</body>
+</html>

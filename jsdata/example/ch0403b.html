@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forループ（番号を付ける）10万回繰り返し</title>
+</head>
+
+<body style="background-color: #99CC99;">
+  <!-- タグの後ろに 「style=...」で、「スタイル」を指定できる。
+       この場合、bodyタグの範囲（つまりドキュメント領域全体）の背景の色を緑色にする
+       #99CC99 はRGBという指定の仕方。
+    -->
+
+<p>
+    <img src="pictures/samgaetang.png" style="float: right; width: 5rem;">
+    <!-- 「float: right」で右寄せにする。 「width: 5rem」で画像の幅を5文字分にする -->
+</p>
+<script>
+"use strict";
+for (let i=1; i<=10_0000; i++) { // 「_」を桁区切りに用いることができる
+  document.write( i + ". 蔘鶏湯が食べたい<br>");
+}
+</script>
+<p>
+    <span style="color: red;">おいしい</span>参鶏湯が食べた〜い！
+    <!-- spanタグで囲んだ部分について styleで指定したスタイルを適用する。
+         この場合は 文字色を red（赤）にする -->
+  </p>
+</body>
+</html>

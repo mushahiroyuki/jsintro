@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>合計と平均 reduce</title>
+</head>
+
+<body>
+<script>
+"use strict";
+  const テストの点数 = [98, 34, 70, 56, 89, 65, 70, 46, 64, 56];
+  const 合計 = テストの点数.reduce(
+    (それまでの小計, 現在の要素の値) => それまでの小計+現在の要素の値, // 第1引数
+    0 // 第2引数 「それまでの小計」の初期値
+  );
+  const 平均 = 合計/テストの点数.length;
+  document.write(`合計: ${合計}<br>`);
+  document.write(`平均: ${平均}点`);                      
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アニメーション</title>
+</head>
+
+<body>
+  <div>
+    <img src="pictures/picture001.jpg" alt="" style="width: 5%;">
+  </div>
+  
+  <script>
+    "use strict";
+
+    let Params = {
+      increment: 2,
+      percent: 5
+    }
+
+    const img = document.images[0];
+    const timerID = setInterval(enlargePict, 20, img);
+    setTimeout(()=>clearInterval(timerID), 8*1000);
+    
+    function enlargePict(image) { // 画像を変える関数
+      image.style.width = Params.percent + "%";
+      Params.percent += Params.increment;
+      if (90 <= Params.percent || Params.percent < 5) {
+        Params.increment *= -1;
+        // console.log(increment);
+      }
+    }
+</script>
+</body>
+</html>

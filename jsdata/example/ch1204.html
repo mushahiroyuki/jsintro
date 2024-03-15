@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery（画像2枚。for文）</title>
+
+<style type="text/css">
+  body {
+    text-align: center;
+  }
+  .smallPict {
+    width: 120px;
+  }
+  .bigPict {
+    width: 400px;
+  }
+</style>
+</head>
+<body>
+  <h1>Photo Gallery（画像2枚。for文）</h1>
+  <div id="smallPicts"> <!-- 小画像の表示領域 -->
+  </div>
+  <div id="pictFrame"> <!-- 大画像の表示枠 -->
+  </div>
+<script>
+  "use strict";    
+  const numberOfPicts = 2;
+  
+  let html = "";  //↓小画像のHTMLコードを作る
+  for (let i=0; i<numberOfPicts; i++) { 
+    const filename = `pictures/picture00${i}.jpg`;
+    html += `<img id="image${i}" class="smallPict" src="${filename}">`;
+  }
+  document.getElementById("smallPicts").innerHTML = html; //小画像を表示
+
+  for (let i=0; i<numberOfPicts; i++) { //イベントハンドラを追加
+    const filename = `pictures/picture00${i}.jpg`;
+    const img = document.getElementById(`image${i}`); //画像オブジェクト
+    
+    img.addEventListener("mouseover", () =>  //大画像を表示
+      document.getElementById("pictFrame").innerHTML
+        = `<img class="bigPict" src="${filename}">`
+    );
+  
+    img.addEventListener("mouseout", () =>   //大画像を消去
+      document.getElementById("pictFrame").innerHTML = ""
+    );
+  }
+</script>
+</body>
+</html>

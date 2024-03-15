@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12-7（フォームの処理。連想配列）</title>
+
+<style>
+  body {
+    margin-left: 2rem;
+    font-size: large;
+  }
+</style>
+
+</head>
+
+<body>
+<h2>電話帳</h2>
+<!--  ★★ex1401-bekkai.html に別解あり★★  -->
+<form id="form1">
+  氏名：<input type="text" id="name">
+  <button type="submit" value="search">検索</button><br>
+  電話番号：<span id="phoneNumber"></span>
+</form>
+
+<script>
+"use strict";
+
+//電話帳の定義 オブジェクトのプロパティを使って記憶する
+const 電話帳 = {
+  "東野ナカ": "160-8811-8888", "平山綾香": "190-3344-3333", "白木渚" : "143-334-2222",
+  "武田信玄" : "1268-22-4321", "上杉謙信" : "13-3311-3421", "真田幸村" : "1268-24-3311",
+  "松ひく子" : "160-3312-2212"
+};
+// 次のようにしてもよい（プロパティ名は "..." でくくらなくてもよい）。
+// 東野ナカ: "160-8811-8888",   平山綾香: "190-3344-3333", ... 
+
+
+// submitイベントが起こったときに関数「電話番号を表示」を呼び出す
+document.getElementById("form1").addEventListener("submit", 電話番号を表示);
+/* ★注意★
+  document.getElementByIdに指定するIDは、このコードより上で定義されていないとエラーになる
+  （ただし、少し「細工」をすればこの制限をなくすこともできる。たとえばonloadイベントを使う）
+*/
+  
+function 電話番号を表示(event) {
+  event.preventDefault(); // 再読込しないようにする
+  // フォームは、submitするとデフォルトでは（何も指定しないと）指定のURLに移動してしまう。
+  // URLが指定されていない場合は同じページを再読み込みする。
+  // すると、名前も電話番号も消えてしまう。
+  // 上を書いておくとデフォルトの動作をしない -> 再読み込みしない
+  const 氏名 = document.getElementById("name").value;
+  // nameというidのinput領域に入力された値を取得
+  // console.log(氏名); // デバッグ用
+  const 電話番号 = 電話番号を検索(氏名);
+  document.getElementById("phoneNumber").innerHTML = 電話番号;
+}
+
+function 電話番号を検索(氏名) {
+  if (電話帳[氏名]) { // 電話帳に氏名が登録されていれば
+    return 電話帳[氏名];
+  }
+  return "わかりません";
+}
+</script>
+</body>
+</html>

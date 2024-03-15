@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12-5</title>
+</head>
+ 
+<body>
+  <h1 style="text-align: center;">Photo Gallery</h1>
+  <div id="pictures">
+  </div>
+
+<script>
+"use strict";
+const 画像の枚数 = 5;
+const オリジナルのサイズ = "120px";
+const 大画像のサイズ = "300px";
+//const アニメーション用CSS = "transition: all 100ms 0s ease";
+// 参照: https://developer.mozilla.org/ja/docs/Web/CSS/transition
+// このCSSを指定しなければ、スムーズな動きでなくなり、画像の大きさが突然変わる
+
+let html = `<table style="margin: 20px auto;">`;
+html += `<tr>`;
+for (let i=0; i<画像の枚数; i++) {
+  html += `<td style="height: 300px; vertical-align: bottom;">
+             <img id="pict${i}" src="pictures/picture00${i}.jpg"
+             style="width: ${オリジナルのサイズ};">
+           </td>
+          `;
+}
+html += `</tr></table>`;
+document.getElementById("pictures").innerHTML = html;
+
+
+for (let i=0; i<画像の枚数; i++) {
+  let x = document.getElementById(`pict${i}`);
+  x.addEventListener("mouseover", () => 画像を大きくする(x));
+  x.addEventListener("mouseout", () => 画像を小さくする(x));
+
+/* 別解1
+  x.onmouseover = () => 画像を大きくする(i);
+  x.onmouseout = () => 画像を小さくする(i);
+
+  別解2
+  x.onmouseover = function() {画像を大きくする(i);}
+  x.onmouseout = function() {画像を小さくする(i);}
+*/
+}
+
+function 画像を大きくする(x) {
+  x.style.width = 大画像のサイズ;
+}
+
+function 画像を小さくする(x) {
+  x.style.width = オリジナルのサイズ;
+}
+</script>
+
+</body>
+</html>

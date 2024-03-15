@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>連想配列</title>
+</head>
+
+<body style="font-size: 24pt; margin: 3cm;">
+
+  <script>
+    "use strict";
+    let 電話帳 = {
+      東野ナカ: "080-8811-8888",
+      平野絢香: "090-3344-3333",
+      家出オレ : "043-334-2222",
+      武田信玄 : "0268-22-4321",
+      月野元 : "03-3311-3421",
+      真田幸村 : "0268-24-3311",
+      竹たか子 : "070-3312-2212"
+    }
+
+    let x = prompt("氏名を入力してください", "真田幸村");
+    console.log("x="+ x);
+    // document.write(`「${x}」と入力しましたね<br>`);
+    if (電話帳[x]) { // 電話帳で検索した結果が ""でない
+      console.log("電話番号"+ 電話帳[x]);
+      document.write(`${x}さんの電話番号は${電話帳[x]}です<br>`);
+    }
+    else {
+      document.write(`${x}さんの電話番号はわかりません<br>`);
+    }
+
+  </script>
+
+</body>
+</html>

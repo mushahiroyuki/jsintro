@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像タグを生成</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+
+"use strict";
+let x = 画像タグを生成("pictures/picture001.jpg");
+console.log(x);
+
+function 画像タグを生成(ファイル名) {
+  let html = `<img src="${ファイル名}" style="width: 640px; height: 480px;">`;
+  return html;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルクロック（24時間制）</title>
+</head>
+<body>
+  <div id="clock" style="font-size: 100pt; text-align: center; margin-top: 1em;">
+  </div>
+
+<script>
+"use strict";
+const タイマーId = setInterval(時刻を表示, 10);
+
+function 時刻を表示() {
+  document.getElementById("clock").innerHTML = 時刻文字列を取得();
+}
+
+
+function 時刻文字列を取得() {
+  const 現在時刻 = new Date();
+  let 時 = 現在時刻.getHours();
+  if (時 < 10) {
+    時 = "0" + 時;
+  }
+  let 分 = 現在時刻.getMinutes();
+  if (分 < 10) {
+    分 = "0" + 分;
+  }
+  let 秒 = 現在時刻.getSeconds();
+  if (秒 < 10) {
+		秒 = "0" + 秒;
+  }
+	
+  return 時 + ":" + 分 + ":" + 秒;
+}
+</script>
+	
+</body>
+</html>

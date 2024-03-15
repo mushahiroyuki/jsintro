@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Googleマップの利用　その１</title>
+<style>
+  body {
+    text-align: center;
+  }
+  #mapCanvas {
+    margin-left: auto; margin-right: auto;
+  }
+</style>
+</head>
+<body>
+  <h2>Googleの<a href="https://musha.com/scjs/?ln=1402">Maps JavaScript API</a>を使ってみましょう</h2>
+  <p>
+    下に東京タワー周辺の地図を表示してみます。<br>
+    普通のGoogle Mapsと同じように拡大・縮小したりやストリートビューに変えたりできます。<br>
+    <a href="ch1402b.html">ch1402b.html</a>に「地図のオプション」を変えたものがあります。
+  </p>
+  <p style="color: red;">
+    この例題は、ローカルでサーバを動かして試さないと地図が表示されません(ch1403b.htmlまでの例題も同様です）。<br>
+    その場合は<a href="https://musha.com/scjs/?ch=1402">こちらのサポートページの例題を参照してください</a>。    
+  </p>
+
+  <div id="mapCanvas" style="width: 800px; height: 600px;">
+     <!-- 地図の領域 document.getElementByIdで mapCanvasの領域をGoogle側に渡すので、
+       Googleでは、この領域の内部を自由に操作することができる -->
+  </div> 
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8cCgz-ifUZOXsVZlx9SKZiHADFL03iUI&callback=initMap"
+          async defer></script>
+  <script async>
+    "use strict";
+    function initMap() {
+      const 経緯度  //経緯度（経度と緯度）を表すオブジェクトを生成
+            = new google.maps.LatLng(35.6602, 139.7460);
+      const 地図のオプション = { // オブションを表すオブジェクト
+        zoom: 18, // 拡大率。この値を変えると縮尺が変わる
+        center: 経緯度, // 経緯度、上で生成。中心の経度と緯度
+        mapTypeId: google.maps.MapTypeId.SATELLITE //  ROADMAP //
+        // 地図の種類  SATELLITEが航空写真、 ROADMAPが普通の地図
+      };
+      const 地図 = new google.maps.Map(document.getElementById("mapCanvas"),
+                                      地図のオプション);
+      // mapCanvasの領域と「地図のオプション」を渡して新しい地図のオブジェクトを生成
+    }
+  </script>
+</body>
+</html>

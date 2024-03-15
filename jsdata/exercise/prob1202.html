@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロケット発射（カウントダウン）</title>
+<style>
+  img { width: 200px; } /* ロケットの画像の大きさを指定 */
+	#button {
+		background-color: yellow;
+		width: 200px;
+		margin: 0;
+		padding: 10px 40px; /* 文字と枠の間の距離。上下10px、左右40px */
+		font-size: 20pt; /* 文字の大きさ20ポイント */
+		cursor: pointer; /* ポインタを手の形にする */
+		border-radius: 15px; /* 角を丸くする。15pxの半径 */
+	}
+</style>
+</head>
+<body>
+	<div style="text-align: center;">
+    <h1>ロケット発射</h1>
+    <img id="pict" src="pictures/rocket1.png"> <!-- 画像 --><br>
+    <span id="button">発射</span>  <!-- 数字に変わる -->
+	</div>
+  
+  <script>
+    "use strict";
+    let カウント = 10;
+    let タイマーID = -1; // 下のif文で使う
+    const ボタンオブジェクト = document.getElementById("button");
+    
+    function カウントダウン() { // 1秒ごとに呼ばれる関数
+      if (カウント >= 0) {
+        ボタンオブジェクト.innerHTML = カウント; //数字変更
+      }
+      else { // 0より小さくなったら
+        ボタンオブジェクト.innerHTML = "成功！";
+        document.images[0].src = "pictures/rocket2.png"; // 画像を変える
+        clearInterval(タイマーID); // 繰り返しタイマーを止める
+      }
+      カウント--; // ひとつ減らす（マイナス「-」２つ）
+    }
+    
+    ボタンオブジェクト.addEventListener("click", () => {
+      if (タイマーID === -1) {
+        ボタンオブジェクト.innerHTML = カウント;
+        // ↑上の行を入れたほうがすぐに反応したように見える。
+        // 上の行をコメントにしてしまうと、１秒たってから始まることになる
+        カウント--; 
+        タイマーID = setInterval(カウントダウン, 1000); // 1秒ごとに呼び出す
+      }
+      // タイマーID === -1の条件がないとボタンをクリックするたびに
+      // 別のタイマーが始まり、1秒間に何度もカウントダウンが呼ばれることになる
+      // カウントダウンが速くなってしまう
+    });
+  </script>
+</body>
+</html>

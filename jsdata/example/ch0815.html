@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ 関数バージョン（デバッガ用）</title>
+</head>
+<body>
+  <h2>おみくじ</h2>
+  <script>
+    "use strict";
+    let x = おみくじを引く(); 
+    document.write(`今日の運勢は${x}です`);
+    
+    function おみくじを引く() {
+      let y = Math.random();
+      if (y < 0.3) {
+        y = "凶";
+      }
+      else if (y < 0.6) {
+        y = "小吉";
+      }
+      else {
+        y = "大吉";
+      }
+      return y;
+    }
+  </script>
+</body>
+</html>

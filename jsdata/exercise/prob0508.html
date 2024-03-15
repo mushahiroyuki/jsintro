@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「幅を単位付きで指定して画像タグを生成」を使って連続して違う画像を生成  
+  </title>
+</head>
+<body>
+
+<script>
+"use strict";
+let html = ""; // 最終的に出力するHTMLコードを記憶していく
+for (let i=0; i<8; i++) {
+  for (let 幅=10; 幅<=40; 幅+=10) {
+    html += 幅を単位付きで指定して画像タグを生成(`pictures/picture00${i}.jpg`, 幅+"%");
+  }
+  html += "<br>"; // 行ごとに<br>を追加（なくても同じになるが、あったほうが気分がよいか）
+  //console.log(`${i}: ${html}\n`); // 有効にすると途中経過を出力。\n は改行
+}
+document.write(html);
+
+function 幅を単位付きで指定して画像タグを生成(ファイル名, 幅) {
+  let html = `<img src="${ファイル名}" style="width: ${幅};">`;
+  return html;
+}
+</script>
+</body>
+</html>

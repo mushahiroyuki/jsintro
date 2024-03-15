@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>翻訳訳語辞典 API検索</title>
+
+<link rel="stylesheet" href="css/yakugo.css">
+
+<body>
+  <h2>翻訳訳語辞典API検索</h2>
+
+  <form id="form1">
+    英語/日本語：<br><input type="text" id="inp">
+    <button type="submit" id="button" value="search">検索</button>
+  </form>
+
+  <main>
+  <!-- 訳語 -->
+  <div>
+    <p id="translationArea" style="font-size: normal; width: 96%;">
+    </p>
+  </div>
+  </main>
+
+  <footer id="copyright">
+    &copy; Copyright 2023
+    <a href="https://www.marlin-arms.co.jp/">Marlin Arms Corporation</a>.    
+  </footer>
+  <script src="script/yakugo.js"></script><!-- JSコードを別ファイルに書く -->
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロケットを動かす（往復）</title>
+  <style>
+    #rocket img { /* id="rocket"の下位にある<img>のスタイル指定 */
+      width: 120px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ロケットを動かす（往復）</h1>
+
+  <div id="rocket">
+    <img src="pictures/rocket3.png">
+  </div>
+
+
+<script>
+  "use strict";
+
+  const ロケット = document.getElementById("rocket");
+  const 右端 = 500;
+  let 方向 = 1;
+  let カウント = 0;
+  const タイマーID = setInterval(ロケットを動かす, 10);
+  setTimeout(()=>clearInterval(タイマーID), 60*1000); //60秒で停止
+  
+  function ロケットを動かす() {
+    カウント++;
+    
+    let n;
+    if (0 < 方向) {
+      n = カウント;
+    }
+    else {
+      n = 右端 - カウント;
+    }
+    
+    ロケット.style.margin = "0 0 0 " + n + "px";
+    
+    if (右端 < カウント) {
+      カウント = 0;
+      方向 *= -1;
+      let ファイル名 = "pictures/rocket3.png";
+      if (方向 < 0) {
+        ファイル名 = "pictures/rocket4.png";
+      }
+      ロケット.innerHTML = `<img src="${ファイル名}">`;
+    }
+  }
+</script>
+
+</body>
+</html>
+

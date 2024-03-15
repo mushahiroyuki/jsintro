@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロケットを動かす（ウィンドウの端で折り返す）</title>
+  <style>
+    #rocket img { /* id="rocket"の下位にある<img>のスタイル指定 */
+      width: 120px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ロケットを動かす</h1>
+
+  <div id="rocket">
+    <img src="pictures/rocket3.png">
+  </div>
+
+<script type="text/javascript">
+  "use strict";
+  const 継続時間 = 120; // 「継続時間」(秒)実行したら停止。ずっと動き続けないように
+  const ロケット = document.getElementById("rocket");
+  const ロケットの高さ = 160;
+  const 移動幅 = window.innerWidth - ロケットの高さ;
+  let カウント = 0;
+  let 方向 = 1;
+  const タイマーID = setInterval(ロケットを動かす, 1);
+  setTimeout(()=>clearInterval(タイマーID), 継続時間*1000);
+
+function ロケットを動かす() {
+  カウント++;
+  let n;
+  if (0 < 方向) {
+    n = カウント;
+  }
+  else {
+    n = 移動幅 - カウント;
+  }
+  
+  ロケット.style.margin = `0 0 0 ${n}px`;
+
+  if (移動幅 < カウント) { // 「移動幅」分を超えた。方向を逆にする
+    カウント = 0;
+    方向 *= -1;
+    let ファイル名 = "pictures/rocket3.png";
+    if (方向 < 0) {
+      ファイル名 = "pictures/rocket4.png";
+    }
+    ロケット.innerHTML = `<img src="${ファイル名}">`;
+  }
+}
+</script>
+</body>
+</html>

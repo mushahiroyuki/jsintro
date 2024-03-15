@@ -1,0 +1,13 @@
+body {
+  margin: 2px;
+}
+
+#translationArea {
+  word-break: keep-all; /* 訳語の途中で改行しない */
+}
+
+footer {
+  margin-top: 1rem;
+  border-top: solid 1px;
+  padding: 0.2rem;
+}

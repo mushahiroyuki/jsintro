@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画を順番に再生</title>
+  <style>
+    .movie {
+      width: 22%;  /* 幅45%で表示 */
+      border-radius: 10px; /* 境界線（border）の角を丸く。半径（radius）10px */
+    }
+    .controller {
+      margin: 1rem;
+      text-align: center;
+      font-size: 20pt;
+    }
+    .button {
+      width: 30%;
+      color: white;
+      background-color: #0032BF;
+      padding: 1rem;
+      border-radius: 1rem;
+      cursor: pointer;      
+    }
+    #soundOnOff {
+      background-color: white;
+      font-size: xx-large;
+    }
+
+  </style>
+</head>
+
+<body style="text-align: center;">
+  <h2>ムービーギャラリー</h2>
+
+  <div id="movie-div">
+  </div>
+
+  <div class="controller">
+    <span class="button" id="startStop">停止</span>
+    <span class="button" id="soundOnOff">🔇</span>
+  </div>
+
+
+  <script>
+    "use strict";
+    const numberOfMovies = 4; // 動画の個数
+    const playPeriod = 3; // 各動画の再生時間
+    
+    const movieDiv = document.getElementById("movie-div");
+    let html = "";
+    for (let i=0; i<numberOfMovies; i++) {
+      html += `
+     <video class="movie" src="movies/no0${i}.mp4" poster="movies/no0${i}.jpg"
+            playsinline muted loop>
+     </video>`;    
+    }
+    movieDiv.innerHTML = html;
+    
+    const movies = document.getElementsByClassName("movie");
+    let timerID;
+
+    let playing = 0;
+    playMoviesSequentially();
+    
+
+    function playMoviesSequentially() {      
+      movies[playing].play();
+      timerID = setInterval(playOneMovie, playPeriod*1000);      
+
+      function playOneMovie() { // playingの再生を止め、他方の再生を開始
+        // console.log(playing);
+        movies[playing].pause(); // 再生中のもの（playing）をポーズ
+        playing++;
+        if (numberOfMovies <= playing) {
+          playing = 0;
+        }
+        movies[playing].play(); 
+      }
+    }
+
+    const startStopButton = document.getElementById("startStop");
+    startStopButton.addEventListener("click", () => {
+      if (startStopButton.innerHTML === "停止") {
+        for (let m of movies) {
+          m.pause();
+        }
+        startStopButton.innerHTML = "再生";
+        clearInterval(timerID);
+      }
+      else {  // 停止中
+        playMoviesSequentially();
+        startStopButton.innerHTML = "停止";
+      }
+    });
+
+
+    const soundOnOffButton = document.getElementById("soundOnOff");
+    soundOnOffButton.addEventListener("click", () => {
+      if (soundOnOffButton.innerHTML === "🔇") {
+        // これからサウンドオンにする
+        for (let m of movies) {
+          m.muted = false;
+        }
+        soundOnOffButton.innerHTML = "🔉";
+      }
+      else {  // これからサウンドオフにする
+        for (let m of movies) {
+          m.muted = true;
+        }
+        soundOnOffButton.innerHTML = "🔇";
+      }
+    });
+    
+</script>
+</body>
+</html>

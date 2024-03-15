@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロケット発射（カウント部分のみ書き換え）時間計測 </title>
+</head>
+
+<body>
+  <div style="width: 320px; text-align: center; font-size: 36pt;">
+    ロケット発射<br>
+    <img src="pictures/rocket1.png" style="width: 200px;">
+    <div id="counterArea"></div> <!-- ここに数字等を書く。最初は空白 -->
+  </div>
+  
+<script>
+  "use strict";
+  let count = 10;
+  let timerID = setInterval(countDown, 1000);
+
+  function countDown() {
+    console.time("timer1") // 【計測開始】
+    if (0 <= count) { // 「カウンタ」の値が0以上
+      document.getElementById("counterArea").innerHTML = count;
+      count--; // 次に備える
+    }
+    else { // countの値が 0 より小さくなったのでカウントダウン終了
+      clearInterval(timerID); // タイマー停止
+      document.getElementById("counterArea").innerHTML = "発射！";
+      document.images[0].src = "pictures/rocket2.png"; // 画像を交換
+    }
+    console.timeEnd("timer1") // 【計測終了】
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ランダムなサイトへ移動（日本語識別子バージョン）</title>
+</head>
+<body>
+
+<h1>ランダムなニュースサイトへ移動（日本語識別子バージョン）</h1>
+
+<script>
+  "use strict";
+  // 配列sitesにニュース系サイトのURL（「https://」のあと）を記憶
+  const サイトの配列 = ["asahi.com", "mainichi.jp", "yomiuri.co.jp",
+                 "nikkei.com", "news.yahoo.co.jp", "sanspo.com",
+                 "nikkansports.com", "gunosy.com", "oricon.co.jp"];
+  const i = ランダムな整数を取得(サイトの配列.length-1); // 添字の整数を得る
+    // サイトの配列.lengthで大きさ。配列の添字は0からになるので、大きさから1引く
+  const url = "https://" + サイトの配列[i]; // +は連結（くっつける）
+  const ok = confirm(`OKを押すと ${url} へ移動します`); // ダイアログを表示
+  if (ok) { // [OK]を選択されたらokの値がtrue（真）になる
+    document.write(`3秒後に ${url} へ移動します。`);
+    setTimeout(()=> location.href = url, 3*1000)
+  }
+  else { // ［キャンセル］を選択された場合
+    document.write("キャンセルしました。"); // 移動はしない
+  }
+
+  function ランダムな整数を取得(n) { // 0以上n以下の整数をランダムに得る
+    let x = Math.random(); // 0 ≦ x < 1
+    x = x * (n+1);         // 0 ≦ x < n+1
+    x = Math.floor(x);     // 0 ≦ x ≦ n (xは整数)。Math.floorで整数に切り下げ
+    return x;
+  }
+</script>
+
+</body>
+</html>

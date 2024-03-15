@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画の再生と停止</title>
+  <style>
+    .movie {
+      width: 60%;  /* 幅60%で表示 */
+      border-radius: 10px; /* 境界線（border）の角を丸く。半径（radius）10px */
+    }
+    .controller {
+      margin: 1rem;
+      text-align: center;
+      font-size: 20pt;
+    }
+    .button {
+      width: 30%;
+      color: white;
+      background-color: #0032BF;
+      padding: 1rem;
+      border-radius: 1rem;
+      cursor: pointer; /* マウスポインタの手の形にする */
+    }
+  </style>
+</head>
+
+<body style="text-align: center;">
+  <h2>動画の再生と停止</h2>
+
+  <div>
+    <video class="movie" src="movies/no00.mp4" poster="movies/no00.jpg"
+           playsinline loop> <!-- 再生を繰り返す -->
+    </video>
+  </div>
+
+  <div class="controller">
+    <span class="button" id="startStop">再生</span>
+  </div>
+
+<script>
+  "use strict";
+  const movies = document.getElementsByClassName("movie");
+  // CSSのclass名が"movie" のものを全部集める
+  // moviesはHTMLCollectionというほぼ配列と同じように扱えるものになる
+  // この例では1つしかないので、getElementByIDを用いてもよいが、
+  // あとの問題で複数の動画を扱うので、拡張できるようにこうしておく
+  
+  const startStopButton = document.getElementById("startStop");
+
+  startStopButton.addEventListener("click", () => { // ボタンをクリックしたときの処理
+    if (movies[0].paused) { // 再生中でないなら
+      movies[0].play();
+      startStopButton.innerHTML = "停止";
+    }
+    else {  // 再生中のとき
+      movies[0].pause(); // 動画を停止
+      startStopButton.innerHTML = "再生";      
+    }
+  });
+</script>
+</body>
+</html>

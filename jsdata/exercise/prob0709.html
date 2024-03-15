@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12-4</title>
+</head>
+
+<body style="font-size: 24pt; margin: 3cm;">
+
+<script>
+"use strict";
+
+let x = prompt("整数を入力してください", 10);
+if (0 < x) {
+	let total = 0;
+	for (let i=1; i<=x; i++) {
+    total += i;
+  }
+  document.write("1から" + x + "までの合計は" + total + "です");
+}
+else {
+  document.write("計算できません");
+}
+</script>
+</body>
+</html>

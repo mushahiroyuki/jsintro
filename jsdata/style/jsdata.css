@@ -1,0 +1,86 @@
+body { /* <body>...</body>で囲まれた部分の見栄えの指定 */
+  background-color: #81F7F3;  /* ページ全体の背景色 青緑系 */
+  padding: 0;   /* メニューなどがピタッと揃うように0にする */
+  margin: 0;  /* paddingや marginの値を「5px」とかにして試してみてください */
+}
+
+h1 {  /* 一番大きな見出し   タイトル */
+  padding: 2px 4px 2px 1rem;  /* 1remは基本の大きさの文字の大きさを基準に1文字分 */
+  margin: 0;
+  background-color: #0B0B8B;  /* 背景色 濃い青 */
+  color: white; /* 文字色は白。 背景が濃い色なので明るい色にする */
+  font-size: x-large; /* 文字の大きさ。とても大きく。  "16pt"などとも指定可 */
+  /* 「eXtra large」の省略形。xx-large はさらに大きく。
+      逆に x-small、 xx-smallなどの指定もあり  */
+}
+
+h2, h3 { /* 2番目、3番目のレベルの見出し。 文字の大きさはデフォルトのまま */
+  margin: 0.5rem;  /* 前後左右のマージンを 0.5文字分あける */
+}
+
+p {  /* 一般の段落（パラグラフ） */
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+img, #coverImage {  /* img タグで指定する画像で、かつidに「coverImage」と
+                       指定されている場合のみこの指定が有効になる */
+  width: 8rem;
+  height: 10rem;
+  float: right;
+  padding: 4px;
+  transition: all 200ms; /* 画像の大きさが変わるとき0.2秒かけて変化する */
+}
+
+img:hover, #coverImage { /* 表紙画像の上にマウスが載った（hoverした）ときの指定 */
+  width: 12rem;  /* 幅を12文字分に拡大する（上に8remの指定があるので1.5倍になる）*/
+  height: 15rem;  /* 高さを15文字分に拡大する  */
+  transition: all 500ms; /* 画像が大きくなるときに0.5秒かける */
+  /* たとえば 「transition: width 2000ms;」などと指定してみてください */
+}
+
+nav {  /* ナビゲーション */
+  margin: 0;
+  padding: 0.2rem 1rem;
+  border-top: solid 1px; /* 上に線を引く。 実線で1pxの太さ */
+  background-color: #0808AA; /* 背景色。h1よりはやや薄い青 */
+  color: white;
+  font-size: smaller; /* 文字の大きさ小さめ */
+}
+
+nav a {  /* ナビゲーション部分のリンクタグ */
+  color: white; /* 色を白にする。 */
+}
+
+.internalGoto {
+  border: solid 1px black;
+  border-left: none;
+  border-right: none;
+  padding: 0.3rem 1rem;
+}
+
+footer { /* フッター。テキストはJavaScriptで生成しているので、最初は「箱」だけ */
+  margin-top: 1rem;
+  border-top: solid 1px;
+  padding: 0.2rem;
+}
+
+a { /* リンク */
+  color: #08088A;
+  text-decoration: none;
+  transition: all 200ms; /* 下のa:hoverから戻るときの効果 0.2秒で戻る */
+  padding: 4px;
+}
+
+a:hover {  /* マウスがリンクの上に来たとき */
+  color: blue;  
+  transition: all 200ms; /* 下記の効果を0.2秒かけて、すべての種類について適用 */
+  font-weight: bold; /* 文字を太く */
+  background-color: pink; /* 背景色をピンク */
+  padding: 5px;  /* 文字の周りに少し間をあける */
+  border-radius: 5px; /* 角を5pxの幅で丸くする */
+}
+
+footer {
+  font-size: small;
+}

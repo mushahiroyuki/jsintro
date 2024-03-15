@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-4</title>
+</head>
+
+<body style="font-size: 24pt; margin: 3cm;">
+
+<p>
+<script>
+
+"use strict";
+const 色の配列 =  ["赤", "青", "黄色", "緑", "紫", "黒", "ピンク", "茶色", "灰色"];
+const 色指定文字列の配列 =  ["red", "blue", "yellow", "green",  "purple", "black",
+                          "pink", "brown", "gray"];
+const i = ランダムな整数を生成(色の配列.length-1); // length は配列の大きさ
+const 色 = 色の配列[i];
+const 色指定文字列 = 色指定文字列の配列[i];
+let メッセージ;
+
+if (i===2) {
+  メッセージ = `あなたの今日のラッキーカラーは
+             <span style="color: ${色指定文字列}; background-color: black;">黄色</span>です。`;
+}
+else {
+  メッセージ = `あなたの今日のラッキーカラーは<span style="color: ${色指定文字列}">${色}</span>です。`;
+}
+document.write(メッセージ);
+
+// 0以上n以下の整数をランダムに得る
+function ランダムな整数を生成(n) {
+  let x = Math.random();
+  x = x * (n+1);
+  x = Math.floor(x);
+  return x;
+}
+
+</script>
+</p>
+
+</body>
+</html>

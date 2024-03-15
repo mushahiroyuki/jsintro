@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ（何回も呼び出す）</title>
+</head>
+
+<body>
+  <script>
+    "use strict";
+    document.write(`西野さんの運勢：${おみくじを引く()}<br>`);
+    document.write(`平原さんの運勢：${おみくじを引く()}<br>`);
+    document.write(`家入さんの運勢：${おみくじを引く()}<br>`);
+
+    function おみくじを引く() {
+      let y = Math.random();
+      if (y < 0.3) {
+        y = "凶";
+      }
+      else if (y < 0.6) {
+        y = "小吉";
+      }
+      else {
+        y = "大吉";
+      }
+      return y; // return は1箇所にまとめておいたほうがデバッグが楽
+    }
+  </script>
+</body>
+</html>

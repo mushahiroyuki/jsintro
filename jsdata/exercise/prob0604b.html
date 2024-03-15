@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3秒経過 無名関数</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+<p>
+しばらくお待ちください。<br>
+3秒たつとメッセージが表示されます。<br>
+3回で終わります。
+</p>
+
+<script>
+  "use strict";
+  const 秒数 = 3;
+  const 繰り返す回数 = 3;
+  let カウンタ = 0;
+  const タイマーID = setInterval(
+    function () {
+      カウンタ++;
+      alert(秒数+"秒経過しました");
+      if (繰り返す回数 <= カウンタ) {
+        clearInterval(タイマーID);
+      }
+    }      
+    , 秒数 * 1000);
+</script>
+
+
+</body>
+</html>
+
+

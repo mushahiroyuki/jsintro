@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>２行４列の画像のテーブル（ループを2個）</title>
+</head>
+
+<body>
+
+<h2>２行４列の画像</h2>
+
+
+<script>
+// 2回for文を使う
+"use strict";
+const スタイル = `style="width: 200px;"`;
+let 画像番号 = 0; // 出力する画像の番号を記憶する
+
+let html = "<table>";
+
+html += "<tr>";  // 1行目
+for (let 列番号=0; 列番号<4; 列番号++) {
+  let ファイル名 = `pictures/picture00${画像番号}.jpg`;
+  画像番号++;
+  html += `<td> <img src="${ファイル名}" ${スタイル}> </td>`;
+}
+html += "</tr>";
+
+html += "<tr>"; // 2行目
+for (let 列番号=0; 列番号<4; 列番号++) { // 同じコードになる
+  let ファイル名 = `pictures/picture00${画像番号}.jpg`;
+  画像番号++;
+  html += `<td> <img src="${ファイル名}" ${スタイル}> </td>`;
+}
+html += "</tr>";
+
+html += "</table>";
+document.write(html);
+</script>
+
+
+</body>
+</html>

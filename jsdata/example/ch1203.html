@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery（画像2枚）</title>
+
+<style type="text/css">
+  body {
+    text-align: center;
+  }
+  .smallPict {
+    width: 120px;
+  }
+  .bigPict {
+    width: 400px;
+  }
+</style>
+</head>
+
+<body>
+  <h1>Photo Gallery（画像2枚）</h1>
+  <div> <!-- 小画像の表示領域 -->
+    <img class="smallPict" src="pictures/picture000.jpg">
+    <img class="smallPict" src="pictures/picture001.jpg">
+    <!-- 2つのimgタグの間に改行などを置くと画像の間にスペースが入る。
+      　　間をあけたくなければ、2つのimgタグを1行に書けばよい -->
+  </div>
+  <div id="pictFrame"> <!-- 大画像の表示枠 -->
+  </div>
+
+  <script>
+    "use strict";
+    for (let i=0; i<2; i++) {
+      const img = document.images[i];
+      img.addEventListener("mouseover", () =>
+        document.getElementById("pictFrame").innerHTML
+	        = `<img class="bigPict" src="${img.src}">`
+      );
+      img.addEventListener("mouseout", () =>
+        document.getElementById("pictFrame").innerHTML = ""
+      );
+    }
+  </script>
+</body>
+</html>

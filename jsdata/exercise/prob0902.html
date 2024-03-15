@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9-2</title>
+</head>
+
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+"use strict";
+const 英和辞書 = {
+  library: "図書館",  mountain: "山",  river: "川",
+  bug: "虫",         warrior: "武者",  knight: "騎士",
+  star: "星",        moon: "月",       ant: "蟻",
+  elephant: "象",    bird: "鳥",       book: "本"
+};
+
+for (const 英単語 in 英和辞書) { // 英和辞書のすべての「名前」について実行する
+  document.write(`${英単語}: ${英和辞書[英単語]}<br>`); // 改行するのに<br>が必要
+  console.log(`${英単語}: ${英和辞書[英単語]}`); // こちらは自動的に改行する
+}
+</script>
+
+</body>
+</html>

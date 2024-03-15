@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画の再生</title>
+  <style>
+    .movie {
+      width: 60%;  /* 幅80%で表示 */
+      border-radius: 10px; /* 境界線（border）の角を丸く。半径（radius）10px */
+    }
+    .controller {
+      margin: 1rem;
+      text-align: center;
+      max-width: 90%;
+      font-size: larger;
+    }
+    .button {
+      color: white;
+      background-color: #0032BF;
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;      
+    }
+    #soundOnOff { /* soundOnOffのidが振られているものだけに適用 */
+      background-color: white;
+      font-size: xx-large;
+      margin-left: 1rem;  /* 少し他のボタンから離す */
+    }
+  </style>
+</head>
+
+<body style="text-align: center;">
+  <h2>動画の再生・停止、サウンドのオン・オフ、少し戻る・進む</h2>
+
+  <div>
+    <video class="movie" src="movies/no00.mp4" poster="movies/no00.jpg"
+           playsinline loop muted>
+    </video>
+  </div>
+
+  <div class="controller">
+    <span class="button" id="backward5">←5秒</span>
+    <span class="button" id="startStop">再生</span>
+    <span class="button" id="forward5">5秒→</span>
+    <span class="button" id="soundOnOff">🔇</span>
+  </div>
+
+<script>
+  "use strict";
+  const movies = document.getElementsByClassName("movie");
+  // CSSのclass名が"movie" のものを全部集める
+  // moviesはHTMLCollectionというほぼ配列と同じように扱えるものになる
+
+  let playing = false;
+
+  const startStopButton = document.getElementById("startStop");
+  startStopButton.addEventListener("click", () => {
+    if (! playing) { // 再生中でないなら
+      playing = true;
+      movies[0].play();
+      startStopButton.innerHTML = "停止";
+    }
+    else {
+      movies[0].pause(); // 動画を停止
+      playing = false;
+      startStopButton.innerHTML = "再生";      
+    }
+  });
+
+  const soundOnOffButton = document.getElementById("soundOnOff");
+  soundOnOffButton.addEventListener("click", () => {
+    if (movies[0].muted) { // サウンドがオフなら
+      movies[0].muted = false;
+      soundOnOffButton.innerHTML = "🔉";
+    }
+    else {
+      movies[0].muted = true;
+      soundOnOffButton.innerHTML = "🔇";      
+    }
+  });
+
+
+  const backward5 = document.getElementById("backward5");
+  backward5.addEventListener("click", () => {
+    movies[0].currentTime -= 5;
+  });
+
+  const forward5 = document.getElementById("forward5");
+  forward5.addEventListener("click", () => {
+    movies[0].currentTime += 5;
+  });
+  
+  
+/*
+  function playOneMovie() { // playingMovieの再生を止め、他方の再生を開始
+    movies[playingMovie].pause(); // 再生中のものをポーズ
+    playingMovie = 1 - playingMovie;  // playingMovieが1なら0; 0なら1になる
+    movies[playingMovie].muted = false; // muteを解除
+    movies[playingMovie].play();  // playingを再生
+    }
+    */
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ（別解。引数）</title>
+</head>
+<body>
+  <script>
+    "use strict";
+    function おみくじを引く() {
+      let y = Math.random();
+      if (y < 0.3) {
+        y = "凶";
+      }
+      else if (y < 0.6) {
+        y = "小吉";
+      }
+      else {
+        y = "大吉";
+      }
+      return y; 
+    }
+
+    function 運勢を表示(人名, ひにち) {
+      let 結果 = おみくじを引く();
+      結果 = `<span style="color: red;">${結果}</span>`;
+      document.write(`${人名}氏の${ひにち}の運勢は${結果}です。<br>`);
+    }
+
+    運勢を表示("西野", "今日" );
+    運勢を表示("平原", "明日");
+    運勢を表示("家入", "明後日");
+  </script>
+</body>
+</html>

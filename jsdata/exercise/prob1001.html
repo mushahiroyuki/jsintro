@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スライドショー ２枚ずつ表示（1枚ずつ変更）</title>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <h1>スライドショー ２枚ずつ表示（1枚ずつ変更）</h1>
+    <img id="pict" src="pictures/picture000.jpg" 
+	 style="width: 320px;">
+    <img id="pict2" src="pictures/picture001.jpg" 
+	 style="width: 320px;">
+  </div>
+
+<script>
+  "use strict";
+  const lastPictNum = 9; // この画像を右側に表示したら終わり
+  let pictNum = 1; // 次に表示される左側の画像の番号。0はすでに表示されているので1から
+  let timerID = setInterval(changePicts, 2*1000); //2秒ごとにchangePictsを呼出し  
+
+  function changePicts() {
+    document.images[0].src = `pictures/picture00${pictNum}.jpg`; //画像を変更
+    document.images[1].src = `pictures/picture00${pictNum+1}.jpg`;
+    if (lastPictNum <= pictNum+1) { // 右側がlastPictNumと同じになったらやめる
+      clearInterval(timerID);
+    }
+    pictNum++;
+  }
+</script>
+
+</body>
+</html>

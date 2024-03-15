@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery（関数）</title>
+
+<style type="text/css">
+  body {
+    text-align: center;
+    margin: 0;
+  }
+  .bigPict {
+    width: 60%;
+  }
+</style>
+
+</head>
+
+<body>
+  <h1>Photo Gallery（関数）</h1>
+  <div id="smallPicts"> <!-- 小画像の表示領域 -->
+  </div>
+  <div id="pictFrame"> <!-- 大画像の表示枠 -->
+  </div>
+</body>
+
+<script>
+  "use strict";
+  
+  const numberOfPicts = 5;
+  const scrollBarWidth = 20;
+  const smallPictWidth = (window.innerWidth-scrollBarWidth)/numberOfPicts;
+
+  //小画像のHTMLコードを作る
+  let html = "";
+  for (let i=0; i<numberOfPicts; i++) { 
+    const filename = `pictures/picture00${i}.jpg`;
+    html += `<img id="image${i}" style="width: ${smallPictWidth}px;" src="${filename}">`;
+  }
+  document.getElementById("smallPicts").innerHTML = html; //小画像列を表示
+ 
+  const bigImg = document.getElementById("pictFrame");
+  for (let i=0; i<numberOfPicts; i++) {
+    const filename = `pictures/picture00${i}.jpg`;
+    const smallImg = document.getElementById(`image${i}`);
+    if (0 < navigator.maxTouchPoints) { //タッチ操作ができる
+      handleTouchDevice(smallImg, bigImg, filename);
+    }
+    else {  //パソコンなど
+      handlePC(smallImg, bigImg, filename);
+    }
+  }
+
+  //タッチデバイスの処理。小画像、大画像、ファイル名 を渡す
+  function handleTouchDevice(small, big, filename) {
+    small.addEventListener("touchstart", () => { //小画像をタップした
+      if (big.innerHTML.includes(filename)) { //既に大画像が表示されている
+        big.innerHTML = ""; //消す
+      }
+      else { // 大画像は表示されていない -> 表示
+        big.innerHTML = `<img class="bigPict" src="${filename}">`;
+      }
+    });
+  }
+
+  //非タッチデバイスの処理。小画像、大画像、ファイル名 を渡す
+  function handlePC(small, big, filename) { 
+    small.addEventListener("mouseover", () => //大画像を表示
+      big.innerHTML = `<img class="bigPict" src="${filename}">`
+    );
+    small.addEventListener("mouseout", () =>  //大画像を消去
+      big.innerHTML = ""
+    );
+  }
+</script>
+</html>

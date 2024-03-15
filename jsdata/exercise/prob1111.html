@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルクロック（12時間制）</title>
+</head>
+<body>
+
+  <div id="clock" style="font-size: 100pt; text-align: center; margin-top: 1em;">
+  </div>
+	
+<script>
+"use strict";
+function getTimeString() {
+  const 現在 = new Date();
+  const 時 = 現在.getHours();
+  const 午前or午後 = 時<12 ? "午前" : "午後"; // ifの短い形式
+
+  let 時_表示用 = 時;
+  if (12 <= 時) {
+    時_表示用 = 時-12;
+  }
+  if (時_表示用 <= 9) {
+    時_表示用 = "0" + 時_表示用;
+  }
+
+  let 分 = 現在.getMinutes();
+  if (分 < 10) {
+    分 = "0" + 分;
+  }
+  let 秒 = 現在.getSeconds();
+  if (秒 < 10) {
+    秒 = "0" + 秒;
+  }
+  
+  return `${午前or午後}${時_表示用}:${分}:${秒}`;
+}
+
+function 時刻を表示() {
+  document.getElementById("clock").innerHTML = getTimeString();       
+}
+
+let timerId = setInterval(時刻を表示, 100);
+
+</script>
+  
+</body>
+</html>

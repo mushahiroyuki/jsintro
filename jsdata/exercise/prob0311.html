@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文字列の連結 その2</title>
+</head>
+<body>
+
+<script>
+"use strict";
+let x = "初めての";  // let x = '初めての';    でもOK
+x += "JavaScript";  // xの後ろに「JavaScript」が追加される
+let y = "この本もおすすめ -- ";
+x = y + x;
+x = "『" + x + "』"; //数字と文字列、文字列と文字列をつなげるには「+」
+document.write(x);
+</script>
+
+</body>
+</html>
+
+

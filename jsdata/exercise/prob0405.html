@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>5-5 olタグを使う</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+
+
+<script>
+
+// 演習問題3-1の出力の、各行の前に、1から順番に番号を振れ。ただし、<ol>タグを使うこと。
+
+"use strict";
+document.write( "<ol>");
+for (let i=0; i<16; i++) { // (let i=1; i<=16; i++) でもOK
+  document.write( "<li>私はプログラミングが好きになる〜〜</li>");
+}
+document.write("</ol>");
+
+/*
+  このコードでは改行は書かれなくて、下のようなHTMLコードが書かれることになる
+  人間が処理するのではなく、ブラウザが処理するので、これでもかまわない。
+
+---- 出力されるコード begin -------
+<li>私はプログラミングが好きです。</li><li>私はプログラミングが好きです。</li><li>私はプログラミングが好きです。</li><li>私はプログラミングが好きです。</li><li>私はプログラミングが好きです。</li><li>私はプログラミングが好きです。</li><li>私はプログラミングが好きです。</li>...＜中略＞...<li>私はプログラミングが好きです。</li>
+---- 出力されるコード end -------
+
+これでは、「気持ちが悪い」という方は、次のいずれか方法を使って各行の終わりに改行を書いてもかまわない。
+・document.writeln() を使うと各行に改行コードを出力する。たとえば、 
+   document.writeln("<li>私はプログラミングが好きです。</li>");
+・"¥n"あるいは"\n"（環境によって異なります）を書くと改行コードを出力する。たとえば、 
+   document.write("<li>私はプログラミングが好きです。</li>\n");
+*/
+</script>
+
+</body>
+</html>
+
+

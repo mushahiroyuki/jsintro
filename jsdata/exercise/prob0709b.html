@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12-4別解</title>
+</head>
+
+<body style="font-size: 24pt; margin: 3cm;">
+
+<script>
+
+"use strict";
+let n = prompt("整数を入力してください", 10); // nは文字列になる
+n = parseInt(n,10); // nを数値として解釈する。 「n = n*1」としてもnは整数になる
+// 上記のいずれかがないとnは文字列（たとえば、"10"という文字） として解釈されてしまう
+
+if (0 < n) {
+  let total = (1+n)*(n/2); // 中学校でならう、合計の公式。
+                           // 参考ページ -- https://mathwords.net/1karannowa
+  document.write("1から" + n + "までの合計は" + total + "です");
+}
+else {
+  document.write("計算できません");
+}
+</script>
+</body>
+</html>

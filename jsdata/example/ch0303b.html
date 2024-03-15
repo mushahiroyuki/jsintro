@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加減乗除など</title>
+</head>
+
+<body>
+  <script>
+    "use strict";
+    let x = 3;
+    let y = 27;
+    let z = y / x;   // 27 ÷ 3 → 9
+    document.write(z); // 9が表示される
+    document.write("<br>"); // 改行する
+    y = y - 2;  // yから2を引く → yは25
+    z = y % x;  // 25÷3は8あまり1なので z は 1
+    document.write(z); // 1が表示される
+    document.write("<br>"); // 改行する
+    z = y ** x;  // 25の3乗は15625
+    document.write(z); // 15625が表示される
+  </script>
+</body>
+</html>

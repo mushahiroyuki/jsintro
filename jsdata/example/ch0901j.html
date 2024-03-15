@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画を交互に再生（日本語識別子バージョン）</title>
+  <style>
+    .movie {
+      width: 45%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body style="text-align: center;">
+  <h2>動画を交互に再生</h2>
+
+  <div id="movies" style="text-align: center;">
+    <video class="movie" muted> <!-- mutedにすればChromeでも即座に再生可 -->
+      <source src="movies/no00.mp4">
+    </video>
+    <video class="movie" muted>
+      <source src="movies/no01.mp4">
+    </video>
+  </div>
+
+<script>
+  "use strict";
+  const 再生時間 = 3;
+  const 総再生時間 = 60;
+  let 再生中 = 0;  // 0が左側 1が右側
+  let 動画 = document.getElementsByClassName("movie");
+  const 動画の個数 = 動画.length;
+
+  動画[再生中].play();
+  let タイマーID = setInterval(動画を再生, 再生時間*1000);
+  setTimeout(() => {
+    clearInterval(タイマーID);
+    動画[0].pause();
+    動画[1].pause();
+  }, 総再生時間*1000);
+
+
+  function 動画を再生() {
+    動画[再生中].pause(); // 再生中のものをポーズ
+    再生中 = 1 - 再生中;  // 再生中が1なら0; 0なら1になる
+    動画[再生中].play(); 
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-5</title>
+</head>
+
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+"use strict";
+
+let ラッキーアイテム = ["マウス", "万年筆", "シャープペン", "スマートフォン", "ホッチキス",
+                      "ポストイット", "定期券", "ペンダント"];
+/* 下のように書いてもOK。配列の初期化の別の方法。
+  let ラッキーアイテム = new Array("マウス", "万年筆", "シャープペン", "スマートフォン",
+                                 "ホッチキス", "ポストイット", "定期券", "ペンダント");
+*/  
+
+let x = Math.random();
+x *= ラッキーアイテム.length; // 配列のlengthプロパティで、配列の大きさがわかる
+// ↑は x = x*ラッキーアイテム.length と同じ
+x = Math.floor(x);
+// console.log(x); // デバッグの時、使う
+document.write("今日のあなたのラッキーアイテムは <span style='font-size: 36pt; color: blue;'>"
+                 + ラッキーアイテム[x] + "</span> です。");
+</script>
+
+
+</body>
+</html>

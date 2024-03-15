@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>console</title>
+</head>
+
+<body>
+
+  <h1>consoleのメソッド</h1>
+  <p>
+    コンソールを開いておいて実行してください。
+  </p>
+<script>
+  "use strict";
+
+  const tv1 = { // オブジェクト tv1の定義（8章参照）
+    スイッチオン: true,
+    チャンネル: 8,
+    ボリューム: 20
+  }
+  alert("コンソールを開いておいてから実行してください。");
+
+  console.log("1. console.timeを使ってtimer1をスタート。約3.2秒後に終了。");
+  console.time("timer1");  // timer1をスタート
+  setTimeout(()=>console.timeEnd("timer1"), 3200); // 3.2秒後にtimer1を終了
+  
+  console.log("2. console.timeを使ってtimer2をスタート。約3.1秒後に終了。");
+  console.time("timer2"); // timer2をスタート
+  setTimeout(()=>console.timeEnd("timer2"), 3100); // 3.1秒後にtimer2を終了
+  
+  console.log("\n3. tv1を普通の形式で表示します。"); // 先頭の\nで1行あける
+  console.log(tv1); // tv1を普通の形式で出力
+
+  console.log("\n4. tv1を表形式で表示します。");
+  console.table(tv1); // 表形式でtv1を出力
+
+  console.log(`\n
+5. (1) この下にtimeEndまでの時間が表示されます。
+   (2) 5秒後にダイアログボックスが表示され、 ［OK］でコンソールの内容が消去されます。`);
+
+  setTimeout( ()=> { const a=confirm("コンソールの内容を消去します。"); 
+                     if (a) { // ［OK］をクリックした場合
+                       console.clear();
+                     }
+                     else {
+                       console.log("\n6. 消去をキャンセルしました。");
+                     }
+                   }, 5*1000);
+</script>
+</body>
+</html>

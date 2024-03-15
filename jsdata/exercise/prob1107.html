@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロケットを動かす（左から右）</title>
+  <style>
+    #rocket img { /* id="rocket"の下位にある<img>のスタイル指定 */
+      width: 120px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ロケットを動かす（左から右）</h1>
+
+  <div id="rocket">
+    <img src="pictures/rocket3.png">
+  </div>
+
+  <script>
+    "use strict";
+    const ロケット = document.getElementById("rocket");
+    // 画像タグがここより上にないとオブジェクトを取得できないので、<img>は<script>よりも上に書く
+    
+    const 動かす幅 = 400;  // px単位
+    let カウント = 0;
+    const タイマーID = setInterval(ロケットを動かす, 10);
+    
+    function ロケットを動かす() {
+      カウント++;
+      if (動かす幅 < カウント) {
+        clearInterval(タイマーID);
+      }
+      ロケット.style.margin = `0 0 0 ${カウント}px`; // 上, 右, 下, 左の順にマージン指定
+      // ロケット.style.marginLeft = `${カウント}px`;  // ←これでもOK
+    }
+  </script>
+</body>
+</html>
+

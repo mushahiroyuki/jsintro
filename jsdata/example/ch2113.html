@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array.reverse</title>
+</head>
+
+<body>
+<script>
+"use strict";
+  let 単語列 = ["大吉", "中吉", "小吉", "凶"];
+  console.log(`単語列（reverse実行前）: ${単語列}`);
+  let 結果 = 単語列.reverse();
+  console.log(`返される値: ${結果}`);
+  console.log(`単語列（実行後）: ${単語列}`);
+  // ★元々の配列も変わってしまうことに注意！★
+
+  console.log("------")
+  let テストの成績 = [40, 75, 98];
+  console.log(`テストの成績（reverse実行前）: ${テストの成績}`);
+  結果 = テストの成績.reverse();
+  console.log(`返される値: ${結果}`);
+  console.log(`テストの成績（実行後）: ${テストの成績}`);
+
+</script>
+</body>
+</html>

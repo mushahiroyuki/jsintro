@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ラッキーナンバー 1~100</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+
+<script>
+"use strict";
+let x = Math.random();
+// console.log("x="+ x);  // Math.random()から返ってきた値の確認
+x *= 100;  // 0 ≦ x < 100
+x = Math.floor(x);  // xは0以上99以下の整数
+x++; // xは1以上100以下の整数
+document.write("あなたの今日のラッキーナンバーは" + x + "です。");
+</script>
+
+</body>
+</html>
+
+

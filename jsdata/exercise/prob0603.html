@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3秒タイマー（アロー関数）</title>
+</head>
+<body style="margin: 4rem; font-size: 24pt;">
+
+<p>
+しばらくお待ちください。3秒たつとメッセージが表示されます。
+</p>
+
+<script>
+  "use strict";
+  setTimeout(
+    () => { alert("３秒経過しました"); },  // 第1引数はアロー関数の定義
+    1000 * 3);  // 1000*3 は第２引数
+</script>
+</body>
+</html>
+
+

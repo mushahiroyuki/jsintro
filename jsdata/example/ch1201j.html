@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery（日本語識別子バージョン）</title>
+
+<style type="text/css">
+  body { /* <body>...</body>について有効になる */
+    text-align: center;  /* 全体をセンタリング（中央揃え） */
+  }
+  .smallPict { /* class="smallPict" と指定されたものについて有効 */
+    width: 120px; /* 小画像のサイズを120pxに指定 */
+  }
+  .bigPict { /*  class="bigPict" と指定されたものについて有効 */
+    width: 400px; /* 大画像のサイズを400pxに指定 */
+  }
+</style>
+</head>
+
+<body>
+  <h1>Photo Gallery（日本語識別子バージョン）</h1>
+  <div id="smallPicts"> <!-- 小画像の表示領域 -->
+  </div>
+  <div id="pictFrame"> <!-- 大画像の表示枠 -->
+  </div>
+
+<script>
+  "use strict";
+  const 画像の枚数 = 5;
+  
+  let html = ""; // ↓小画像のHTMLコードを作る
+  for (let i=0; i<画像の枚数; i++) { 
+    const ファイル名 = `pictures/picture00${i}.jpg`;
+    html += `<img id="image${i}" class="smallPict" src="${ファイル名}">`;
+  }
+  document.getElementById("smallPicts").innerHTML = html; // 小画像を表示
+
+  for (let i=0; i<画像の枚数; i++) { // イベントハンドラを追加
+    const ファイル名 = `pictures/picture00${i}.jpg`;
+    const img = document.images[i]; //document.images[0]には先頭の画像に関する情報が入る
+    img.addEventListener("mouseover", () =>  // 大画像を表示する
+      document.getElementById("pictFrame").innerHTML
+        = `<img class="bigPict" src="${img.src}">`
+    );
+    
+    img.addEventListener("mouseout", () =>   // 大画像を消す
+      document.getElementById("pictFrame").innerHTML = ""
+    );
+  }
+</script>
+</body>
+</html>
