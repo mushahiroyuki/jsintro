@@ -8,6 +8,8 @@
 <ul>
   <li>	
   例題および解答例のダウンロードは、[こちらのサポートページ](https://www.marlin-arms.com/support/jsintro/download.html)からZIPファイルをダウンロードしていただくか、「clone」してください。
+  <br>
+  なお、example/ch1402.htmlとexample/ch1402b.htmlについては、APIキーを入力していただく必要があります。詳しくは本文をお読みください。
   </li>
 
 <li>  
