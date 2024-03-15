@@ -1,10 +1,10 @@
-# 実践 JavaScript!
+# 実践 JavaScript！
 
 <img src="https://www.marlin-arms.com/jpn/arts/books-small/jsintro.png" width="200px">
 
-[オーム社](https://www.ohmsha.co.jp/book/9784274231735/)発行の『[実践 JavaScript! プログラミングを楽しみながら しっかり身につける](https://www.marlin-arms.com/support/jsintro/)』の例題および練習問題の解答例用リポジトリです。
+[オーム社](https://www.ohmsha.co.jp/book/9784274231735/)発行の『[実践 JavaScript！ プログラミングを楽しみながら しっかり身につける](https://www.marlin-arms.com/support/jsintro/)』の例題および練習問題の解答例用リポジトリです。
 
- * 例題および解答例のダウンロードは、[こちらのサポートページ](https://www.marlin-arms.com/support/jsintro/download.html)からZIPファイルをダウンロードしていただくか、「clone」してください。<br> なお、example/ch1402.htmlとexample/ch1402b.htmlについては、APIキーを入力していただく必要があります。詳しくは本文をお読みください。
+例題および解答例のダウンロードは、[こちらのサポートページ](https://www.marlin-arms.com/support/jsintro/download.html)からZIPファイルをダウンロードしていただくか、「clone」してください。<br> なお、example/ch1402.htmlとexample/ch1402b.htmlについては、APIキーを入力していただく必要があります。詳しくは本文をお読みください。
 
 本について詳しくは<a href="https://www.marlin-arms.com/support/jsintro/">サポートページ</a>をご覧ください。
 
@@ -31,10 +31,12 @@
 |jsdata/exercise/prob14xx.html       |14章の練習問題の解答例   |
 |jsdata/exercise/prob22xx.yy      |付録Bの練習問題の解答例   |
 
-image
-index.html
-script
-style
+
+ファイルindex.htmlおよびフォルダ image、script、styleについては、14章をご覧ください。
+
+
+
+
 
 
 
