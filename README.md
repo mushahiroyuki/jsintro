@@ -4,18 +4,10 @@
 
 [オーム社](https://www.ohmsha.co.jp/book/9784274231735/)発行の『[実践 JavaScript! プログラミングを楽しみながら しっかり身につける](https://www.marlin-arms.com/support/jsintro/)』の例題および練習問題の解答例用リポジトリです。
 
-<div>
-<ul>
-  <li>	
-  例題および解答例のダウンロードは、[こちらのサポートページ](https://www.marlin-arms.com/support/jsintro/download.html)からZIPファイルをダウンロードしていただくか、「clone」してください。
-  <br>
-  なお、example/ch1402.htmlとexample/ch1402b.htmlについては、APIキーを入力していただく必要があります。詳しくは本文をお読みください。
-  </li>
+ * 例題および解答例のダウンロードは、[こちらのサポートページ](https://www.marlin-arms.com/support/jsintro/download.html)からZIPファイルをダウンロードしていただくか、「clone」してください。<br> なお、example/ch1402.htmlとexample/ch1402b.htmlについては、APIキーを入力していただく必要があります。詳しくは本文をお読みください。
 
-<li>  
-  本について詳しくは<a href="https://www.marlin-arms.com/support/jsintro/">サポートページ</a>をご覧ください。
-  </li>
-</div>
+本について詳しくは<a href="https://www.marlin-arms.com/support/jsintro/">サポートページ</a>をご覧ください。
+
 
 ## ファイル構成
 
