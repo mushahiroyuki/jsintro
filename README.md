@@ -2,12 +2,12 @@
 
 <img src="https://www.marlin-arms.com/jpn/arts/books-small/jsintro.png" width="200px">
 
-[オーム社](https://www.ohmsha.co.jp/book/9784274231735/)発行の『[実践 JavaScript!](https://www.marlin-arms.com/support/jsintro/)』の例題および解答例用リポジトリです。
+[オーム社](https://www.ohmsha.co.jp/book/9784274231735/)発行の『[実践 JavaScript! プログラミングを楽しみながら しっかり身につける](https://www.marlin-arms.com/support/jsintro/)』の例題および練習問題の解答例用リポジトリです。
 
 <div>
 <ul>
   <li>	
-  例題および解答例のダウンロードは、こちらのサポートページからZIPファイルをダウンロードしていただくか、「git clone」してください。
+  例題および解答例のダウンロードは、[こちらのサポートページ](https://www.marlin-arms.com/support/jsintro/download.html)からZIPファイルをダウンロードしていただくか、「clone」してください。
   </li>
 
 <li>  
@@ -27,8 +27,20 @@
 |jsdata/example/ch14xx.html       |14章の例題   |
 |jsdata/example/ch21xx.html      |付録Aの例題   |
 |jsdata/example/ch22xx.html      |付録Bの例題   |
+|      |   |
+|jsdata/exercise/         |練習問題の解答例のフォルダ |
+|jsdata/exercise/prob01xx.html       |1章の練習問題の解答例    |
+|jsdata/exercise/prob02xx.html       |2章の練習問題の解答例    |
+|jsdata/exercise/prob03xx.html       |3章の練習問題の解答例    |
+|...        |...         |
+|jsdata/exercise/prob12xx.html       |12章の練習問題の解答例   |
+|jsdata/exercise/prob14xx.html       |14章の練習問題の解答例   |
+|jsdata/exercise/prob22xx.yy      |付録Bの練習問題の解答例   |
 
-
+image
+index.html
+script
+style
 
 
 
